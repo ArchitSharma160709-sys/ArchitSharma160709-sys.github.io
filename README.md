@@ -1,6 +1,6 @@
-# Excel Tutoring
+# Archit Tutoring
 
-Website for Excel Tutoring — one-to-one online GCSE Maths, Further Maths and Physics tutoring.
+Website for Archit Tutoring — one-to-one online GCSE Maths, Further Maths and Physics tutoring.
 
 - **Live site:** published via GitHub Pages from the `main` branch.
 - **Source:** the whole site is a single self-contained `index.html`. No build step, no dependencies.
