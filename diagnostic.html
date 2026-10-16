@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Where Are Your Marks Going?</title>
+<meta name="description" content="A free six-question GCSE Maths check that shows whether you're losing marks to the maths or to the working you didn't write down.">
+<meta name="theme-color" content="#0d1d3d">
+<meta property="og:title" content="Where are your marks going? — Archit Tutoring">
+<meta property="og:description" content="Six questions. Find out whether you're losing marks to the maths or to the method you didn't show.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@400;500;600&display=swap">
+<style>
+:root {
+  --paper: #ffffff; --paper-2: #f6f8fb; --paper-3: #eef2f8;
+  --line: #dce3ed; --line-strong: #c0cbdb;
+  --navy: #16305f; --navy-deep: #0d1d3d; --navy-mid: #1d3f78;
+  --ink: #0f1e3c; --ink-soft: #4b5a76; --ink-faint: #76839b;
+  --good: #1d6b4a; --good-bg: #e8f3ed;
+  --miss: #a3342f; --miss-bg: #fbecea;
+  --on-navy-soft: #c2cfe6; --on-navy-faint: #92a4c4; --on-navy-line: rgba(255,255,255,0.18);
+  --serif: "EB Garamond", Garamond, "Times New Roman", Times, serif;
+  --sans: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  --col: 54rem;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--serif); font-size: 1.1875rem; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+h1,h2,h3 { margin: 0; font-weight: 500; letter-spacing: -0.015em; line-height: 1.07; text-wrap: balance; }
+p { margin: 0; }
+a { color: var(--navy-mid); }
+:focus-visible { outline: 2px solid var(--navy-mid); outline-offset: 3px; }
+
+.wrap { max-width: var(--col); margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left,0px)); padding-right: max(20px, env(safe-area-inset-right,0px)); padding-block: 4rem; }
+.label { font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.17em; text-transform: uppercase; color: var(--navy-mid); margin: 0; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 600; font-size: 0.9375rem; padding: 0.7rem 1.5rem; border-radius: 999px; border: 1px solid var(--navy); background: var(--navy); color: #fff; text-decoration: none; cursor: pointer; transition: background-color .15s ease, border-color .15s ease; }
+.btn:hover { background: var(--navy-mid); border-color: var(--navy-mid); }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.btn--ghost { background: transparent; color: var(--navy); border-color: var(--line-strong); }
+.btn--ghost:hover { background: var(--paper-3); border-color: var(--navy); color: var(--navy); }
+.btn--sm { font-size: 0.875rem; padding: 0.5rem 1.15rem; }
+
+/* header */
+.topbar { position: sticky; top: env(safe-area-inset-top,0px); z-index: 20; background: rgba(255,255,255,.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.topbar__in { max-width: var(--col); margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left,0px)); padding-right: max(20px, env(safe-area-inset-right,0px)); padding-block: .6rem; display: flex; align-items: center; gap: .75rem; flex-wrap: nowrap; }
+.wordmark { display: flex; align-items: center; gap: .5rem; text-decoration: none; color: var(--ink); font-weight: 600; font-size: 1.0625rem; white-space: nowrap; }
+.mark { display: grid; place-items: center; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 600; font-size: .875rem; flex: none; }
+.topbar .btn { margin-left: auto; white-space: nowrap; }
+
+/* hero */
+.navy { background: var(--navy-deep); color: #fff; }
+.navy .label { color: var(--on-navy-faint); }
+.navy h1 { font-size: clamp(2.1rem, 6vw, 3.4rem); margin-top: 1rem; color: #fff; }
+.navy h1 em { font-style: italic; color: var(--on-navy-soft); }
+.navy .lede { font-size: 1.125rem; line-height: 1.45; color: var(--on-navy-soft); margin-top: 1.1rem; max-width: 38rem; }
+.meta { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem; font-family: var(--sans); font-size: .875rem; color: var(--on-navy-faint); }
+.meta b { display: block; font-family: var(--serif); font-size: 1.5rem; font-weight: 500; color: #fff; }
+
+.note { background: var(--paper-2); border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem 1.4rem; margin-top: 2.5rem; }
+.note p { color: var(--ink-soft); font-size: 1.0625rem; }
+.note p + p { margin-top: .6rem; }
+
+/* progress */
+.prog { position: sticky; top: calc(env(safe-area-inset-top,0px) + 3.05rem); z-index: 15; background: var(--paper); border-bottom: 1px solid var(--line); }
+.prog__in { max-width: var(--col); margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left,0px)); padding-right: max(20px, env(safe-area-inset-right,0px)); padding-block: .7rem; display: flex; align-items: center; gap: .9rem; font-family: var(--sans); font-size: .8125rem; color: var(--ink-faint); }
+.bar { flex: 1; height: 5px; background: var(--paper-3); border-radius: 999px; overflow: hidden; min-width: 0; }
+.bar span { display: block; height: 100%; width: 0; background: var(--navy); border-radius: 999px; transition: width .4s ease; }
+
+/* questions */
+.q { border: 1px solid var(--line); border-radius: 12px; padding: 1.75rem 1.6rem; margin-top: 1.25rem; background: var(--paper); }
+.q__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.q__n { font-family: var(--sans); font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--navy-mid); }
+.q__marks { font-family: var(--sans); font-size: .8125rem; color: var(--ink-faint); white-space: nowrap; }
+.q__text { font-size: 1.25rem; margin-top: .85rem; }
+.q__text .expr { font-family: var(--serif); font-style: italic; white-space: nowrap; }
+.q__hint { font-family: var(--sans); font-size: .875rem; color: var(--ink-faint); margin-top: .6rem; }
+
+.answer { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.1rem; align-items: center; }
+.answer input {
+  font-family: var(--serif); font-size: 1.125rem; color: var(--ink);
+  padding: .6rem .9rem; border: 1px solid var(--line-strong); border-radius: 999px;
+  background: var(--paper); min-width: 0; flex: 1 1 12rem; max-width: 20rem;
+}
+.answer input:focus { border-color: var(--navy-mid); outline: none; }
+
+.scheme { margin-top: 1.4rem; padding-top: 1.3rem; border-top: 1px solid var(--line); }
+.scheme__t { font-family: var(--sans); font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); }
+.verdict { margin-top: .8rem; font-size: 1.0625rem; padding: .7rem .9rem; border-radius: 8px; }
+.verdict--good { background: var(--good-bg); color: var(--good); }
+.verdict--miss { background: var(--miss-bg); color: var(--miss); }
+.steps { list-style: none; margin: 1.1rem 0 0; padding: 0; display: grid; gap: .55rem; }
+.steps li { display: flex; gap: .75rem; align-items: flex-start; }
+.steps label { display: flex; gap: .7rem; align-items: flex-start; cursor: pointer; font-size: 1.0625rem; color: var(--ink-soft); line-height: 1.4; }
+.steps input { margin: .35rem 0 0; width: 1.05rem; height: 1.05rem; accent-color: var(--navy); flex: none; cursor: pointer; }
+.steps .tag { font-family: var(--sans); font-size: .6875rem; font-weight: 600; letter-spacing: .08em; color: var(--navy-mid); background: var(--paper-3); border-radius: 4px; padding: .12rem .4rem; flex: none; margin-top: .2rem; }
+.ask { font-family: var(--sans); font-size: .875rem; color: var(--ink-faint); margin-top: 1rem; }
+
+/* result */
+.result { border: 1.5px solid var(--navy); border-radius: 12px; padding: 2rem 1.75rem; margin-top: 2rem; }
+.score { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.4rem; }
+.score div { min-width: 0; }
+.score b { display: block; font-size: 2.5rem; font-weight: 500; line-height: 1; color: var(--navy); font-variant-numeric: tabular-nums; }
+.score span { font-family: var(--sans); font-size: .8125rem; color: var(--ink-faint); display: block; margin-top: .4rem; }
+.readout { margin-top: 1.6rem; font-size: 1.125rem; color: var(--ink); }
+.readout + .readout { margin-top: .8rem; color: var(--ink-soft); }
+.result .cta { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.8rem; }
+
+footer { border-top: 1px solid var(--line); background: var(--paper-2); margin-top: 3rem; }
+.foot__in { max-width: var(--col); margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left,0px)); padding-right: max(20px, env(safe-area-inset-right,0px)); padding-block: 2rem; font-family: var(--sans); font-size: .8125rem; color: var(--ink-faint); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+@media (max-width: 34rem) {
+  body { font-size: 1.125rem; }
+  .wrap { padding-block: 2.75rem; }
+  .q { padding: 1.4rem 1.15rem; }
+  .score { gap: 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <a class="wordmark" href="index.html"><span class="mark" aria-hidden="true">A</span>Archit Tutoring</a>
+    <a class="btn btn--sm" href="index.html#contact">Book free lesson</a>
+  </div>
+</header>
+
+<section class="navy">
+  <div class="wrap">
+    <p class="label">Free check · GCSE Maths · Higher</p>
+    <h1>Where are your marks <em>actually</em> going?</h1>
+    <p class="lede">
+      Most students who get a 6 instead of an 8 don't have a maths problem. They have a
+      writing-it-down problem. Six questions, twenty marks — this tells you which one you have.
+    </p>
+    <div class="meta">
+      <span><b>6</b>questions</span>
+      <span><b>20</b>marks</span>
+      <span><b>~15</b>minutes</span>
+    </div>
+  </div>
+</section>
+
+<div class="prog">
+  <div class="prog__in">
+    <span id="progText">0 of 6 marked</span>
+    <span class="bar"><span id="progBar"></span></span>
+  </div>
+</div>
+
+<main class="wrap" style="padding-block:2.5rem 4rem">
+
+  <div class="note">
+    <p><strong>Do these on paper first.</strong> Work each one out properly, the way you would in an exam — then type your final answer in.</p>
+    <p>After you check an answer you'll see the mark scheme split into method marks and accuracy marks. Tick only the lines you <em>actually wrote down</em>. Being honest here is the entire point; nobody sees this but you.</p>
+  </div>
+
+  <div id="questions"></div>
+
+  <div id="resultSlot"></div>
+</main>
+
+<footer>
+  <div class="foot__in">
+    <span>Archit Tutoring — Archit Sharma</span>
+    <span><a href="index.html">Back to the main site</a></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // Original questions written in GCSE Higher style. Mark schemes follow the usual
+  // M (method) / A (accuracy) split.
+  var QS = [
+    {
+      text: 'Solve <span class="expr">3x² − 11x + 6 = 0</span>',
+      hint: 'Give both solutions.',
+      marks: 3,
+      accept: ['3,2/3', '3,0.667', '3,0.67', '2/3,3', '0.667,3', '0.67,3', 'x=3,x=2/3'],
+      shown: 'x = 3 and x = 2/3',
+      steps: [
+        { tag: 'M1', text: 'Wrote the factorisation (3x − 2)(x − 3), or the quadratic formula with a, b and c substituted in' }
+      ],
+      acc: 2,
+      accNote: 'A2 — one mark for each correct solution'
+    },
+    {
+      text: 'Make <span class="expr">r</span> the subject of <span class="expr">V = ⁴⁄₃πr³</span>',
+      hint: 'Type your answer as a formula, e.g. r = cbrt(3V/4pi)',
+      marks: 3,
+      accept: ['r=cbrt(3v/4pi)', 'cbrt(3v/4pi)', 'r=(3v/4pi)^(1/3)', '(3v/4pi)^(1/3)', 'r=(3v/(4pi))^(1/3)', 'r=cuberoot(3v/4pi)'],
+      shown: 'r = ∛(3V / 4π)',
+      steps: [
+        { tag: 'M1', text: 'Multiplied both sides by 3 to clear the fraction: 3V = 4πr³' },
+        { tag: 'M1', text: 'Divided to isolate r³: r³ = 3V / 4π' }
+      ],
+      acc: 1,
+      accNote: 'A1 — correct cube root taken'
+    },
+    {
+      text: 'A bag holds 5 red counters and 3 blue. Two are taken at random without replacement. Find the probability they are the same colour.',
+      hint: 'Give a fraction in its simplest form.',
+      marks: 4,
+      accept: ['13/28', '0.464', '0.4643', '0.46'],
+      shown: '13/28',
+      steps: [
+        { tag: 'M1', text: 'Wrote P(both red) = 5/8 × 4/7' },
+        { tag: 'M1', text: 'Wrote P(both blue) = 3/8 × 2/7' },
+        { tag: 'M1', text: 'Added the two probabilities rather than multiplying or subtracting' }
+      ],
+      acc: 1,
+      accNote: 'A1 — correct simplified fraction'
+    },
+    {
+      text: 'Simplify fully <span class="expr">(√12 + √27) ÷ √3</span>',
+      hint: 'The answer is a whole number.',
+      marks: 3,
+      accept: ['5'],
+      shown: '5',
+      steps: [
+        { tag: 'M1', text: 'Wrote √12 = 2√3 and √27 = 3√3' },
+        { tag: 'M1', text: 'Combined the surds to 5√3 before dividing' }
+      ],
+      acc: 1,
+      accNote: 'A1 — correct final value'
+    },
+    {
+      text: 'A is (1, 4) and B is (5, 2). Find the equation of the perpendicular bisector of AB.',
+      hint: 'Give it in the form y = mx + c.',
+      marks: 4,
+      accept: ['y=2x-3', 'y=2x−3', '2x-3', 'y = 2x - 3'],
+      shown: 'y = 2x − 3',
+      steps: [
+        { tag: 'M1', text: 'Found the midpoint of AB as (3, 3)' },
+        { tag: 'M1', text: 'Found the gradient of AB as −1/2' },
+        { tag: 'M1', text: 'Used the negative reciprocal to get a perpendicular gradient of 2' }
+      ],
+      acc: 1,
+      accNote: 'A1 — correct equation, fully simplified'
+    },
+    {
+      text: 'A jacket costs £63 in a sale after a 10% discount. Find the original price.',
+      hint: 'Give your answer in pounds.',
+      marks: 3,
+      accept: ['70', '£70', '70.00', '£70.00'],
+      shown: '£70',
+      steps: [
+        { tag: 'M1', text: 'Recognised that £63 represents 90% of the original, not 100%' },
+        { tag: 'M1', text: 'Wrote the division 63 ÷ 0.9 (or 63 ÷ 90 × 100)' }
+      ],
+      acc: 1,
+      accNote: 'A1 — correct original price'
+    }
+  ];
+
+  var state = QS.map(function () { return { checked: false, right: false, method: 0 }; });
+
+  function norm(s) {
+    return String(s || '')
+      .toLowerCase()
+      .replace(/\s+/g, '')
+      .replace(/−/g, '-')
+      .replace(/["'`]/g, '')
+      .replace(/^x=/, 'x=');
+  }
+
+  function isRight(q, val) {
+    var v = norm(val);
+    if (!v) return false;
+    return q.accept.some(function (a) { return norm(a) === v; });
+  }
+
+  var host = document.getElementById('questions');
+
+  QS.forEach(function (q, i) {
+    var card = document.createElement('section');
+    card.className = 'q';
+
+    var stepHtml = q.steps.map(function (s, j) {
+      return '<li><label><input type="checkbox" data-q="' + i + '" data-s="' + j + '">' +
+             '<span><span class="tag">' + s.tag + '</span> ' + s.text + '</span></label></li>';
+    }).join('');
+
+    card.innerHTML =
+      '<div class="q__head"><span class="q__n">Question ' + (i + 1) + '</span>' +
+      '<span class="q__marks">[' + q.marks + ' marks]</span></div>' +
+      '<p class="q__text">' + q.text + '</p>' +
+      '<p class="q__hint">' + q.hint + '</p>' +
+      '<div class="answer">' +
+        '<input type="text" id="in' + i + '" autocomplete="off" aria-label="Your answer to question ' + (i + 1) + '" placeholder="Your answer">' +
+        '<button class="btn btn--sm" type="button" id="go' + i + '">Check</button>' +
+      '</div>' +
+      '<div class="scheme" id="sch' + i + '" hidden>' +
+        '<p class="scheme__t">Mark scheme</p>' +
+        '<div id="ver' + i + '"></div>' +
+        '<p class="ask">Now tick every line below that you actually wrote down on paper.</p>' +
+        '<ul class="steps">' + stepHtml + '</ul>' +
+        '<p class="ask" style="margin-top:.9rem"><span class="tag" style="font-family:var(--sans)">' +
+          (q.acc === 2 ? 'A2' : 'A1') + '</span> ' + q.accNote + '</p>' +
+      '</div>';
+
+    host.appendChild(card);
+
+    function check() {
+      var val = document.getElementById('in' + i).value;
+      var right = isRight(q, val);
+      state[i].checked = true;
+      state[i].right = right;
+      var ver = document.getElementById('ver' + i);
+      ver.className = '';
+      ver.innerHTML = '<p class="verdict ' + (right ? 'verdict--good' : 'verdict--miss') + '">' +
+        (right ? 'Correct — ' : 'Not quite. The answer is ') + q.shown +
+        (right ? '. That earns the accuracy mark' + (q.acc > 1 ? 's' : '') + '.' : '.') + '</p>';
+      document.getElementById('sch' + i).hidden = false;
+      update();
+    }
+
+    document.getElementById('go' + i).addEventListener('click', check);
+    document.getElementById('in' + i).addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); check(); }
+    });
+  });
+
+  host.addEventListener('change', function (e) {
+    var t = e.target;
+    if (t && t.type === 'checkbox' && t.dataset.q !== undefined) {
+      var qi = +t.dataset.q;
+      state[qi].method = host.querySelectorAll('input[type=checkbox][data-q="' + qi + '"]:checked').length;
+      update();
+    }
+  });
+
+  var slot = document.getElementById('resultSlot');
+
+  function update() {
+    var done = state.filter(function (s) { return s.checked; }).length;
+    document.getElementById('progText').textContent = done + ' of ' + QS.length + ' marked';
+    document.getElementById('progBar').style.width = (done / QS.length * 100) + '%';
+    if (done === QS.length) render();
+  }
+
+  function render() {
+    var methodTotal = 0, methodGot = 0, accTotal = 0, accGot = 0;
+    QS.forEach(function (q, i) {
+      methodTotal += q.steps.length;
+      methodGot += state[i].method;
+      accTotal += q.acc;
+      accGot += state[i].right ? q.acc : 0;
+    });
+    var total = methodTotal + accTotal;
+    var got = methodGot + accGot;
+    var methodLost = methodTotal - methodGot;
+    var accLost = accTotal - accGot;
+
+    var head, body2;
+    if (got === total) {
+      head = 'Full marks, and every step written down.';
+      body2 = 'Nothing here to fix. If you want to be stretched rather than corrected, that is a different kind of lesson — worth saying so when you get in touch.';
+    } else if (methodLost > accLost) {
+      head = 'Your maths is better than your mark.';
+      body2 = 'You lost ' + methodLost + ' mark' + (methodLost === 1 ? '' : 's') + ' to working you did not write down, against ' +
+              accLost + ' to answers that were actually wrong. Those ' + methodLost + ' were already yours — you did the thinking and an examiner never saw it. ' +
+              'This is the most common reason a grade 7 student gets a 6, and it is the fastest thing to fix.';
+    } else if (accLost > methodLost) {
+      head = 'Your working is sound — the answers are slipping.';
+      body2 = 'You lost ' + accLost + ' mark' + (accLost === 1 ? '' : 's') + ' on final answers against ' + methodLost +
+              ' on method. You are setting problems up correctly and losing them at the end, which usually means arithmetic under time pressure or not checking the question actually asked for what you gave it.';
+    } else {
+      head = 'Marks are going evenly to both.';
+      body2 = 'You lost ' + methodLost + ' to method and ' + accLost + ' to accuracy. That split usually means the topic knowledge is patchy rather than the technique — worth finding which topics specifically.';
+    }
+
+    slot.innerHTML =
+      '<div class="result">' +
+        '<p class="label">Your result</p>' +
+        '<h2 style="font-size:1.9rem;margin-top:.8rem">' + head + '</h2>' +
+        '<div class="score">' +
+          '<div><b>' + got + '/' + total + '</b><span>Total marks</span></div>' +
+          '<div><b>' + methodGot + '/' + methodTotal + '</b><span>Method marks (working shown)</span></div>' +
+          '<div><b>' + accGot + '/' + accTotal + '</b><span>Accuracy marks (final answers)</span></div>' +
+        '</div>' +
+        '<p class="readout">' + body2 + '</p>' +
+        '<p class="readout">This was six questions. The free first lesson is forty-five minutes of the same thing across a whole paper, and you leave with it written down — which topics are secure, which are not, and what to do about it.</p>' +
+        '<div class="cta">' +
+          '<a class="btn" href="index.html#contact">Book the free lesson</a>' +
+          '<a class="btn btn--ghost" href="index.html">See what I cover</a>' +
+        '</div>' +
+      '</div>';
+    slot.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+})();
+</script>
+</body>
+</html>
