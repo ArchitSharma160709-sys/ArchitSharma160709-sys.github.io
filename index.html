@@ -419,6 +419,28 @@ footer { border-top: 1px solid var(--line); background: var(--surface); }
   color: var(--ink-faint);
 }
 
+/* ---------- about ---------- */
+.about { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 3rem; margin-top: 3rem; align-items: start; }
+.portrait {
+  aspect-ratio: 4 / 5;
+  max-width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--surface-2);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.portrait span { font-family: var(--display); font-weight: 800; font-size: 3.25rem; letter-spacing: -0.05em; color: var(--gold-dim); }
+.portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about__body { min-width: 0; display: flex; flex-direction: column; gap: 1.25rem; }
+.about__body p { color: var(--ink-soft); }
+.about__body p strong { color: var(--ink); font-weight: 600; }
+.facts { margin: 0.25rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.6rem; }
+.facts li { color: var(--ink-soft); font-size: 0.9375rem; padding-left: 1.1rem; position: relative; line-height: 1.5; }
+.facts li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; border-radius: 50%; background: var(--gold-dim); }
+
+@media (max-width: 46rem) { .about { grid-template-columns: 1fr; gap: 2rem; } .portrait { max-width: 14rem; } }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 @media (max-width: 34rem) {
   .wrap { padding-block: 3.5rem; }
@@ -444,6 +466,7 @@ footer { border-top: 1px solid var(--line); background: var(--surface); }
     <a class="wordmark" href="#top"><span class="mark" aria-hidden="true">E</span>Excel Tutoring</a>
     <nav class="topnav">
       <a href="#subjects">Subjects</a>
+      <a href="#about">About</a>
       <a href="#method">Method</a>
       <a href="#fees">Fees</a>
       <a href="#faq">FAQ</a>
@@ -543,6 +566,43 @@ footer { border-top: 1px solid var(--line); background: var(--surface); }
             <li>Required practicals and 6-mark answers</li>
           </ul>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band--line" id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">About</p>
+        <h2>The person actually doing the teaching.</h2>
+      </div>
+      <div class="about">
+        <!-- Swap the <span> below for: <img src="archit.jpg" alt="Archit Sharma"> -->
+        <div class="portrait" aria-label="Portrait of Archit Sharma"><span aria-hidden="true">AS</span></div>
+        <div class="about__body">
+          <p>
+            I'm <strong>Archit Sharma</strong> — Upper Sixth at King's College School, Wimbledon, taking
+            Maths, Further Maths, Physics and Economics at A-level.
+          </p>
+          <p>
+            I'm applying to Cambridge and LSE to read Economics, so my own week is spent on
+            admissions-level maths and the TMUA. That matters more than it sounds: the habits that get you
+            through an admissions paper — showing method, managing time, spotting when a question is
+            testing something other than what it appears to — are the same habits that move a GCSE grade 6
+            to a grade 8.
+          </p>
+          <p>
+            I tutor three subjects and no more, because I'd rather be genuinely strong in a narrow range
+            than passable across a wide one.
+          </p>
+          <ul class="facts">
+            <li>King's College School, Wimbledon — Upper Sixth</li>
+            <li>Predicted A*A*A* at A-level, plus an A in Further Maths</li>
+            <li>Cambridge and LSE applicant — Economics, 2027 entry</li>
+            <li>King's Essay: Bayesian Nash equilibrium in oligopoly pricing</li>
+            <li>Co-producer of a student economics and finance podcast</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
