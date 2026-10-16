@@ -225,6 +225,30 @@ a { color: var(--navy-mid); }
   text-transform: uppercase;
   color: var(--ink-faint);
 }
+.pull {
+  margin: 2.5rem 0 0;
+  padding-left: 1.35rem;
+  border-left: 2px solid var(--on-navy-line);
+  max-width: 31rem;
+}
+.pull p {
+  font-size: 1.3125rem;
+  font-style: italic;
+  line-height: 1.38;
+  color: #ffffff;
+}
+.pull cite {
+  display: block;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--on-navy-faint);
+  margin-top: 0.9rem;
+}
+
 .shot { margin: 0; min-width: 0; }
 .shot img {
   width: 100%;
@@ -472,6 +496,10 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
           <a class="btn btn--ghost" href="diagnostic.html">Try the 6-question check</a>
         </div>
         <p class="hero__foot">AQA · Edexcel · OCR — Higher tier specialists</p>
+        <blockquote class="pull">
+          <p>An examiner can only mark what's on the page. Half of a top grade is making your thinking visible — and almost nobody gets taught that.</p>
+          <cite>Why the first lesson is a diagnostic</cite>
+        </blockquote>
       </div>
       <figure class="shot">
         <img src="archit.jpg" alt="Archit Sharma" width="800" height="1000">
