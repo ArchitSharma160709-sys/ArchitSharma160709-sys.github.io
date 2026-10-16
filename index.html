@@ -124,27 +124,6 @@ a { color: var(--navy-mid); }
 .navy .btn--ghost:hover { background: rgba(255, 255, 255, 0.1); border-color: #ffffff; color: #ffffff; }
 
 /* ---------- header ---------- */
-.utility {
-  background: var(--paper-2);
-  border-bottom: 1px solid var(--line);
-  font-family: var(--sans);
-  font-size: 0.8125rem;
-  color: var(--ink-faint);
-}
-.utility__in {
-  max-width: var(--col);
-  margin-inline: auto;
-  padding-left: max(20px, env(safe-area-inset-left, 0px));
-  padding-right: max(20px, env(safe-area-inset-right, 0px));
-  padding-block: 0.5rem;
-  display: flex;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.utility a { color: var(--ink-soft); text-decoration: none; }
-.utility a:hover { color: var(--navy-mid); }
-
 .topbar {
   position: sticky;
   top: env(safe-area-inset-top, 0px);
@@ -450,7 +429,6 @@ html.anim .stat:nth-child(4), html.anim .step:nth-child(4) { transition-delay: 0
   .hero .wrap { padding-block: 3.5rem 3rem; }
   .step { grid-template-columns: 1fr; gap: 0.4rem; }
   .topnav { gap: 1.1rem; font-size: 0.875rem; }
-  .utility__in { justify-content: flex-start; }
 }
 </style>
 </head>
@@ -464,13 +442,6 @@ html.anim .stat:nth-child(4), html.anim .step:nth-child(4) { transition-delay: 0
     }
   } catch (e) { /* leave everything visible */ }
 </script>
-
-<div class="utility">
-  <div class="utility__in">
-    <span>Archit Tutoring — online, one to one, UK-wide</span>
-    <a href="mailto:ArchitSharma160709@icloud.com">ArchitSharma160709@icloud.com</a>
-  </div>
-</div>
 
 <header class="topbar">
   <div class="topbar__in">
