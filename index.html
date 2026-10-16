@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="One-to-one online GCSE Maths, Further Maths and Physics tutoring. Free 45-minute diagnostic first lesson. AQA, Edexcel and OCR.">
+<meta name="theme-color" content="#0b0e14">
+<meta property="og:title" content="Excel Tutoring — GCSE Maths, Further Maths &amp; Physics">
+<meta property="og:description" content="One-to-one online tutoring. Free 45-minute diagnostic first lesson.">
+<meta property="og:type" content="website">
+<title>Excel Tutoring</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap">
+
+<style>
+/* Layout: dark institutional column — heavy left-aligned display type,
+   hairline-bordered proof cards, one muted gold accent and nothing else. */
+:root {
+  --ground: #0b0e14;
+  --surface: #11161f;
+  --surface-2: #171d29;
+  --line: #212937;
+  --line-strong: #323c50;
+  --ink: #f3f5f8;
+  --ink-soft: #9aa4b5;
+  --ink-faint: #6c7788;
+  --gold: #d9b14a;
+  --gold-dim: #a8862f;
+
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+
+  --col: 70rem;
+  --read: 40rem;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 30;
+  background: var(--ground);
+}
+
+h1, h2, h3, h4, .btn, .wordmark, .stat__fig, .price__fig, .num {
+  font-family: var(--display);
+}
+h1, h2, h3, h4 { margin: 0; letter-spacing: -0.03em; text-wrap: balance; line-height: 1.1; }
+p { margin: 0; }
+a { color: var(--gold); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.wrap {
+  max-width: var(--col);
+  margin-inline: auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  padding-block: 5.5rem;
+}
+.band--line { border-top: 1px solid var(--line); }
+.band--surface { background: var(--surface); border-block: 1px solid var(--line); }
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: -0.01em;
+  padding: 0.75rem 1.35rem;
+  border-radius: 3px;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: #16120a;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.btn:hover { background: #e6c162; border-color: #e6c162; }
+.btn--ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+.btn--ghost:hover { background: var(--surface-2); border-color: var(--ink-faint); }
+.btn--sm { font-size: 0.8125rem; padding: 0.55rem 1rem; }
+
+/* ---------- utility bar + header ---------- */
+.utility {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+}
+.utility__in {
+  max-width: var(--col);
+  margin-inline: auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  padding-block: 0.5rem;
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.utility a { color: var(--ink-soft); text-decoration: none; }
+.utility a:hover { color: var(--gold); }
+
+.topbar {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: rgba(11, 14, 20, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar__in {
+  max-width: var(--col);
+  margin-inline: auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  padding-block: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  letter-spacing: -0.03em;
+  min-width: 0;
+}
+.mark {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 3px;
+  background: var(--gold);
+  color: #16120a;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: 0;
+  flex: none;
+}
+.topnav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.topnav a { color: var(--ink-soft); text-decoration: none; }
+.topnav a:hover { color: var(--ink); }
+
+/* ---------- hero ---------- */
+.hero { position: relative; overflow: hidden; }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -45% 0 auto 0;
+  height: 95%;
+  background: radial-gradient(52% 100% at 28% 0%, rgba(217, 177, 74, 0.16), rgba(217, 177, 74, 0) 68%);
+  pointer-events: none;
+}
+.hero .wrap { position: relative; padding-block: 6rem 4.5rem; }
+.hero h1 {
+  font-size: clamp(2.3rem, 6.4vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.042em;
+  line-height: 1.02;
+  max-width: 17ch;
+  margin-top: 1.25rem;
+}
+.hero h1 em { font-style: normal; color: var(--gold); }
+.lede {
+  font-size: 1.1875rem;
+  color: var(--ink-soft);
+  max-width: var(--read);
+  margin-top: 1.5rem;
+}
+.lede strong { color: var(--ink); font-weight: 600; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2.25rem; }
+.hero__foot {
+  margin-top: 1.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* ---------- stats ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+  gap: 1rem;
+  margin-top: 3.5rem;
+  position: relative;
+}
+.stat {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 4px;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  min-width: 0;
+}
+.stat__fig {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+.stat--gold .stat__fig { color: var(--gold); }
+.stat__lab { font-size: 0.8125rem; color: var(--ink-soft); margin-top: 0.65rem; }
+.stat__sub { font-size: 0.75rem; color: var(--ink-faint); margin-top: 0.2rem; }
+
+/* ---------- section heads ---------- */
+.sec-head { max-width: var(--read); }
+.sec-head h2 {
+  font-size: clamp(1.75rem, 4.2vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  margin-top: 1rem;
+}
+.sec-head p { color: var(--ink-soft); margin-top: 1.1rem; }
+
+/* ---------- cards ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.card {
+  border: 1px solid var(--line);
+  background: var(--ground);
+  border-radius: 4px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-width: 0;
+}
+.band--surface .card { background: var(--surface-2); border-color: var(--line); }
+.card h3 { font-size: 1.1875rem; font-weight: 700; }
+.card__boards { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dim); }
+.card p { color: var(--ink-soft); font-size: 0.9375rem; }
+.card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.5rem; }
+.card li {
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  padding-left: 1.1rem;
+  position: relative;
+  line-height: 1.5;
+}
+.card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold-dim);
+}
+
+/* ---------- steps ---------- */
+.steps { margin-top: 3rem; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.step {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 1.5rem;
+  padding-block: 1.75rem;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+.num {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.15rem;
+}
+.step__body { min-width: 0; }
+.step h3 { font-size: 1.125rem; font-weight: 700; }
+.step p { color: var(--ink-soft); font-size: 0.9375rem; margin-top: 0.5rem; max-width: var(--read); }
+
+/* ---------- fees ---------- */
+.fees { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1rem; margin-top: 3rem; }
+.price {
+  border: 1px solid var(--line);
+  background: var(--ground);
+  border-radius: 4px;
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+.band--surface .price { background: var(--surface-2); }
+.price--lead { border-color: var(--gold-dim); }
+.price__fig {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.price--lead .price__fig { color: var(--gold); }
+.price__fig small { font-family: var(--body); font-size: 0.9375rem; font-weight: 400; letter-spacing: 0; color: var(--ink-faint); margin-left: 0.5rem; }
+.price p { color: var(--ink-soft); font-size: 0.9375rem; }
+.price ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.55rem; }
+.price li { color: var(--ink-soft); font-size: 0.9375rem; padding-left: 1.1rem; position: relative; line-height: 1.5; }
+.price li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold-dim);
+}
+
+/* ---------- faq ---------- */
+.faq { margin-top: 3rem; border-top: 1px solid var(--line); max-width: 48rem; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  letter-spacing: -0.02em;
+  padding-block: 1.25rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  color: var(--ink);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--gold); margin-left: auto; font-size: 1.25rem; line-height: 1; font-weight: 500; }
+.faq details[open] summary::after { content: "\2212"; }
+.faq details p { color: var(--ink-soft); font-size: 0.9375rem; padding-bottom: 1.4rem; max-width: var(--read); }
+
+/* ---------- contact ---------- */
+.contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1rem; margin-top: 3rem; }
+.ccard {
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  border-radius: 4px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  min-width: 0;
+}
+.ccard h3 { font-size: 1.0625rem; font-weight: 700; }
+.ccard p { color: var(--ink-soft); font-size: 0.9375rem; }
+.addr {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  word-break: break-word;
+  user-select: all;
+}
+.row { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; margin-top: auto; }
+.copied { font-size: 0.8125rem; color: var(--gold); }
+
+footer { border-top: 1px solid var(--line); background: var(--surface); }
+.foot__in {
+  max-width: var(--col);
+  margin-inline: auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  padding-block: 2.25rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.8125rem;
+  color: var(--ink-faint);
+}
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+@media (max-width: 34rem) {
+  .wrap { padding-block: 3.5rem; }
+  .hero .wrap { padding-block: 3.5rem 3rem; }
+  .step { grid-template-columns: 1fr; gap: 0.5rem; }
+  .topnav { gap: 1.1rem; font-size: 0.8125rem; }
+  .utility__in { justify-content: flex-start; }
+}
+</style>
+</head>
+<body>
+
+
+<div class="utility">
+  <div class="utility__in">
+    <span>Excel Tutoring — online, one to one, UK-wide</span>
+    <a href="mailto:ArchitSharma160709@icloud.com">ArchitSharma160709@icloud.com</a>
+  </div>
+</div>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <a class="wordmark" href="#top"><span class="mark" aria-hidden="true">E</span>Excel Tutoring</a>
+    <nav class="topnav">
+      <a href="#subjects">Subjects</a>
+      <a href="#method">Method</a>
+      <a href="#fees">Fees</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn--sm" href="#contact">Book free diagnostic</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="label">GCSE Maths · Further Maths · Physics</p>
+      <h1>Strong grades are built on method, <em>not luck.</em></h1>
+      <p class="lede">
+        One-to-one online tutoring from a tutor sitting Oxbridge-entrance maths this year.
+        I'm Archit — Upper Sixth, predicted <strong>A*A*A*</strong>, applying to
+        <strong>Cambridge and LSE</strong> for Economics. The first lesson is a free diagnostic:
+        you'll leave knowing exactly where the marks are going before you pay anything.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="#contact">Take the free diagnostic</a>
+        <a class="btn btn--ghost" href="#subjects">See what I cover</a>
+      </div>
+      <p class="hero__foot">AQA · Edexcel · OCR — Higher tier specialists</p>
+
+      <div class="stats">
+        <div class="stat stat--gold">
+          <p class="stat__fig">£0</p>
+          <p class="stat__lab">First lesson</p>
+          <p class="stat__sub">45-minute diagnostic</p>
+        </div>
+        <div class="stat">
+          <p class="stat__fig">A*A*A*</p>
+          <p class="stat__lab">Predicted grades</p>
+          <p class="stat__sub">Maths, Physics, Economics</p>
+        </div>
+        <div class="stat">
+          <p class="stat__fig">3</p>
+          <p class="stat__lab">Subjects taught</p>
+          <p class="stat__sub">No padding the list</p>
+        </div>
+        <div class="stat">
+          <p class="stat__fig">24h</p>
+          <p class="stat__lab">Reply to enquiries</p>
+          <p class="stat__sub">Seven days a week</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band--surface" id="subjects">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">What I teach</p>
+        <h2>Three subjects taught properly, not six taught vaguely.</h2>
+        <p>
+          I only tutor subjects I'm examined on at the top level right now. Everything is mapped to
+          your board's specification, and every piece of work comes back marked against the real
+          mark scheme.
+        </p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <h3>GCSE Maths</h3>
+          <p class="card__boards">AQA · Edexcel · OCR</p>
+          <p>Full specification coverage, with the grade 7–9 material given the time it actually needs.</p>
+          <ul>
+            <li>Algebraic proof, surds and indices</li>
+            <li>Quadratics, simultaneous and iterative methods</li>
+            <li>Circle theorems and vectors</li>
+            <li>Histograms, probability trees, bounds</li>
+            <li>Multi-step problem solving (AO3)</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>GCSE Further Maths</h3>
+          <p class="card__boards">AQA L2 Certificate · OCR Additional Maths</p>
+          <p>The bridge into A-level, and the single best preparation for a strong sixth-form start.</p>
+          <ul>
+            <li>Differentiation and stationary points</li>
+            <li>Matrices and transformations</li>
+            <li>Factor theorem and algebraic division</li>
+            <li>Trigonometric identities and equations</li>
+            <li>Coordinate geometry of the circle</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>GCSE Physics</h3>
+          <p class="card__boards">Separate · Trilogy</p>
+          <p>Where marks quietly disappear: equation selection, rearranging, units and required practicals.</p>
+          <ul>
+            <li>Forces, motion and momentum</li>
+            <li>Electricity and circuit analysis</li>
+            <li>Energy stores and efficiency</li>
+            <li>Waves, radiation and magnetism</li>
+            <li>Required practicals and 6-mark answers</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band--line" id="method">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">How it works</p>
+        <h2>Diagnostic first. Then a plan. Then weekly work.</h2>
+        <p>No open-ended "let's see how it goes" — you'll have the plan in writing before you pay for anything.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <p class="num">01</p>
+          <div class="step__body">
+            <h3>Enquiry</h3>
+            <p>Send me the subject, the exam board, the current grade and the target. I reply within 24 hours with two or three slots.</p>
+          </div>
+        </div>
+        <div class="step">
+          <p class="num">02</p>
+          <div class="step__body">
+            <h3>Free diagnostic lesson</h3>
+            <p>Forty-five minutes, no charge, no obligation. I work through a graded question set and watch <em>how</em> your student answers, not just whether they get it right. A written summary follows: topics that are secure, topics that aren't, and the exam-technique habits costing marks.</p>
+          </div>
+        </div>
+        <div class="step">
+          <p class="num">03</p>
+          <div class="step__body">
+            <h3>A written plan</h3>
+            <p>A term-by-term route to the target grade, ordered by how many marks each topic is actually worth. If you'd rather take that plan elsewhere, it's yours to keep.</p>
+          </div>
+        </div>
+        <div class="step">
+          <p class="num">04</p>
+          <div class="step__body">
+            <h3>Weekly lessons</h3>
+            <p>Sixty minutes on video call with a shared whiteboard. Annotated notes after every lesson, plus past-paper questions marked against the official mark scheme — the same feedback an examiner would give.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band--surface" id="fees">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">Fees</p>
+        <h2>One rate. No agency fee, no registration fee, no contract.</h2>
+      </div>
+      <div class="fees">
+        <div class="price price--lead">
+          <p class="label">Diagnostic lesson</p>
+          <p class="price__fig">Free <small>45 minutes</small></p>
+          <p>The first lesson costs nothing. You leave with a written assessment and a plan whether or not you book again.</p>
+        </div>
+        <div class="price">
+          <p class="label">Standard lesson</p>
+          <p class="price__fig">£50 <small>per hour</small></p>
+          <ul>
+            <li>One to one, online</li>
+            <li>Annotated notes after every lesson</li>
+            <li>Homework set and marked to the mark scheme</li>
+            <li>Pay per lesson — no block booking</li>
+            <li>Free cancellation with 24 hours' notice</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band--line" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">Questions</p>
+        <h2>The things parents ask first.</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>You're still at school yourself. Why you?</summary>
+          <p>
+            Because I sat these papers recently enough to remember exactly where the marks go, and I'm
+            still being examined at a higher level every week. I'm not a qualified teacher and I don't
+            pretend to be one. What I offer is current, specific subject knowledge and exam technique,
+            one to one. The free first lesson exists so you can judge that before any money changes hands.
+          </p>
+        </details>
+        <details>
+          <summary>What are your actual grades?</summary>
+          <p>
+            Predicted A* in Maths (Edexcel), A* in Physics (AQA) and A* in Economics, plus Further Maths
+            (OCR MEI). I'm applying to Cambridge and LSE for Economics for 2027 entry and I sit the TMUA
+            admissions test. Happy to show the paperwork on request.
+          </p>
+        </details>
+        <details>
+          <summary>What happens in a lesson?</summary>
+          <p>
+            A video call with a shared digital whiteboard, so we're both writing on the same page. We start
+            with last week's questions, work through the target topic, then finish on timed exam questions.
+            Annotated notes go out afterwards so there's a record to revise from.
+          </p>
+        </details>
+        <details>
+          <summary>Which exam boards do you cover?</summary>
+          <p>
+            AQA, Edexcel and OCR for Maths and Physics. For Further Maths, the AQA Level 2 Certificate and
+            OCR Additional Maths. Tell me the board when you enquire and I'll work from that specification.
+          </p>
+        </details>
+        <details>
+          <summary>Do you set homework?</summary>
+          <p>
+            Yes — usually one timed past-paper section. It comes back marked against the official mark
+            scheme with every lost mark explained, because knowing <em>why</em> a mark went is the part
+            that changes the grade.
+          </p>
+        </details>
+        <details>
+          <summary>Do you tutor A-level?</summary>
+          <p>
+            Not as a rule, but get in touch about AS Maths or Further Maths and I'll tell you honestly
+            whether I can help.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="band--surface" id="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">Get in touch</p>
+        <h2>Book the free diagnostic.</h2>
+        <p>Include the subject, exam board, current grade and target grade, and I'll reply within 24 hours.</p>
+      </div>
+      <div class="contact">
+        <div class="ccard">
+          <h3>Email</h3>
+          <p class="addr" id="email">ArchitSharma160709@icloud.com</p>
+          <p>Best for a full enquiry with the details above.</p>
+          <div class="row">
+            <a class="btn btn--sm" href="mailto:ArchitSharma160709@icloud.com?subject=GCSE%20tutoring%20enquiry">Open email</a>
+            <button class="btn btn--sm btn--ghost" id="copy" type="button">Copy address</button>
+            <span class="copied" id="copied" hidden>Copied</span>
+          </div>
+        </div>
+        <div class="ccard">
+          <h3>Availability</h3>
+          <p class="addr">Weekday evenings &amp; weekends</p>
+          <p>
+            Term time: weekdays from 5pm, weekends 10am–6pm. Holidays are more flexible — intensive
+            blocks before mocks and the summer series can be arranged.
+          </p>
+          <p>Enquiries answered within 24 hours, seven days a week.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot__in">
+    <span>Excel Tutoring — Archit Sharma</span>
+    <span>GCSE Maths · Further Maths · Physics · United Kingdom</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy');
+  var out = document.getElementById('copied');
+  var addr = document.getElementById('email');
+  if (!btn || !addr) return;
+  btn.addEventListener('click', function () {
+    var text = addr.textContent.trim();
+    function flash() {
+      if (!out) return;
+      out.hidden = false;
+      setTimeout(function () { out.hidden = true; }, 1800);
+    }
+    function fallback() {
+      try {
+        var r = document.createRange();
+        r.selectNodeContents(addr);
+        var s = window.getSelection();
+        s.removeAllRanges();
+        s.addRange(r);
+      } catch (e) { /* no further fallback */ }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(flash, fallback);
+    } else {
+      fallback();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
