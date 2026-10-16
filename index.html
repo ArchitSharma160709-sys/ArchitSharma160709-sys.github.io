@@ -426,11 +426,12 @@ html.anim .stat:nth-child(4), html.anim .step:nth-child(4) { transition-delay: 0
   .portrait { max-width: 15rem; }
 
   /* header: wordmark + one CTA on a single row — the section links are a scroll away */
-  .topbar__in { flex-wrap: nowrap; gap: 0.75rem; padding-block: 0.7rem; }
-  .topnav { gap: 0; }
+  .topbar__in { flex-wrap: nowrap; gap: 0.6rem; padding-block: 0.6rem; }
+  .topnav { gap: 0; flex-wrap: nowrap; }
   .topnav a:not(.btn) { display: none; }
-  .wordmark { font-size: 1.1875rem; }
-  .mark { width: 1.75rem; height: 1.75rem; font-size: 0.875rem; }
+  .topnav .btn { white-space: nowrap; font-size: 0.75rem; padding: 0.5rem 0.85rem; }
+  .wordmark { font-size: 1rem; white-space: nowrap; gap: 0.45rem; }
+  .mark { width: 1.6rem; height: 1.6rem; font-size: 0.8125rem; }
 
   /* stats: 2x2 instead of a 1200px column */
   .stats { grid-template-columns: 1fr 1fr; gap: 0.7rem; margin-top: 2.5rem; }
