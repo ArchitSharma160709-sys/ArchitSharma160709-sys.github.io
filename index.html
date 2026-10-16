@@ -7,6 +7,7 @@
 <meta name="theme-color" content="#0d1d3d">
 <meta property="og:title" content="Archit Tutoring — GCSE Maths, Further Maths &amp; Physics">
 <meta property="og:description" content="One-to-one online tutoring. Free 45-minute diagnostic first lesson.">
+<meta property="og:image" content="https://archittutoring.co.uk/archit.jpg">
 <meta property="og:type" content="website">
 <title>Archit Tutoring</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -420,7 +421,27 @@ html.anim .ccard:nth-child(2), html.anim .step:nth-child(2) { transition-delay: 
 html.anim .stat:nth-child(3), html.anim .card:nth-child(3), html.anim .step:nth-child(3) { transition-delay: 0.16s; }
 html.anim .stat:nth-child(4), html.anim .step:nth-child(4) { transition-delay: 0.24s; }
 
-@media (max-width: 46rem) { .about { grid-template-columns: 1fr; gap: 2rem; } .portrait { max-width: 14rem; } }
+@media (max-width: 46rem) {
+  .about { grid-template-columns: 1fr; gap: 2rem; }
+  .portrait { max-width: 15rem; }
+
+  /* header: wordmark + one CTA on a single row — the section links are a scroll away */
+  .topbar__in { flex-wrap: nowrap; gap: 0.75rem; padding-block: 0.7rem; }
+  .topnav { gap: 0; }
+  .topnav a:not(.btn) { display: none; }
+  .wordmark { font-size: 1.1875rem; }
+  .mark { width: 1.75rem; height: 1.75rem; font-size: 0.875rem; }
+
+  /* stats: 2x2 instead of a 1200px column */
+  .stats { grid-template-columns: 1fr 1fr; gap: 0.7rem; margin-top: 2.5rem; }
+  .stat { padding: 1.1rem 0.7rem; }
+  .stat__fig { font-size: clamp(1.25rem, 6vw, 1.9rem); }
+  .stat__lab { font-size: 0.8125rem; margin-top: 0.5rem; }
+  .stat__sub { font-size: 0.6875rem; margin-top: 0.15rem; }
+
+  .hero .wrap { padding-block: 3rem 3rem; }
+  html { scroll-padding-top: 4rem; }
+}
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 @media (max-width: 34rem) {
   body { font-size: 1.125rem; }
@@ -566,8 +587,7 @@ html.anim .stat:nth-child(4), html.anim .step:nth-child(4) { transition-delay: 0
         <h2>The person actually doing the teaching.</h2>
       </div>
       <div class="about">
-        <!-- Swap the <span> below for: <img src="archit.jpg" alt="Archit Sharma"> -->
-        <div class="portrait" aria-label="Portrait of Archit Sharma"><span aria-hidden="true">AS</span></div>
+        <div class="portrait"><img src="archit.jpg" alt="Archit Sharma" width="800" height="1000"></div>
         <div class="about__body">
           <p>
             I'm <strong>Archit Sharma</strong> — Upper Sixth at King's College School, Wimbledon, taking
