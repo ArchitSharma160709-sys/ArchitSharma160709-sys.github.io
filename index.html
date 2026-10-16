@@ -248,7 +248,7 @@ a { color: var(--navy-mid); }
   text-align: center;
   min-width: 0;
 }
-.stat__fig { font-family: var(--serif); font-size: 2.5rem; font-weight: 500; letter-spacing: -0.02em; line-height: 1; font-variant-numeric: tabular-nums; color: #ffffff; }
+.stat__fig { font-family: var(--serif); font-size: clamp(1.9rem, 4.6vw, 2.5rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; color: #ffffff; white-space: nowrap; }
 .stat__lab { font-family: var(--sans); font-size: 0.875rem; color: var(--on-navy-soft); margin-top: 0.7rem; }
 .stat__sub { font-family: var(--sans); font-size: 0.8125rem; color: var(--on-navy-faint); margin-top: 0.2rem; }
 
@@ -489,9 +489,9 @@ html.anim .stat:nth-child(4), html.anim .step:nth-child(4) { transition-delay: 0
           <p class="stat__sub">45-minute diagnostic</p>
         </div>
         <div class="stat">
-          <p class="stat__fig">A*A*A*</p>
+          <p class="stat__fig">A*A*A*A</p>
           <p class="stat__lab">Predicted grades</p>
-          <p class="stat__sub">Maths, Physics, Economics</p>
+          <p class="stat__sub">Maths, Physics, Economics, Further Maths</p>
         </div>
         <div class="stat">
           <p class="stat__fig">3</p>
