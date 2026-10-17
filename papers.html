@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Past Papers &amp; Tracker</title>
+<meta name="description" content="Every GCSE Maths, Further Maths and Physics past paper source in one place, plus a tracker for logging which papers you've sat and what you scored.">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="Past papers and tracker — GCSE Tuition with Archit Sharma">
+<meta property="og:description" content="Past paper links for every board, plus a tracker for your marks.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@400;500;600&display=swap">
+<style>
+:root {
+  --paper: #ffffff; --paper-2: #f6f8fb; --paper-3: #eef2f8;
+  --line: #dce3ed; --line-strong: #c0cbdb;
+  --navy: #16305f; --navy-deep: #0d1d3d; --navy-mid: #1d3f78;
+  --ink: #0f1e3c; --ink-soft: #4b5a76; --ink-faint: #76839b;
+  --good: #1d6b4a; --warn: #8a6d1f; --bad: #a3342f;
+  --on-navy-soft: #c2cfe6; --on-navy-faint: #92a4c4; --on-navy-line: rgba(255,255,255,.18);
+  --serif: "EB Garamond", Garamond, "Times New Roman", Times, serif;
+  --sans: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  --col: 66rem;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--serif); font-size: 1.1875rem; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+h1,h2,h3 { margin: 0; font-weight: 500; letter-spacing: -0.015em; line-height: 1.07; text-wrap: balance; }
+p { margin: 0; }
+a { color: var(--navy-mid); }
+:focus-visible { outline: 2px solid var(--navy-mid); outline-offset: 3px; }
+
+.wrap { max-width: var(--col); margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left,0px)); padding-right: max(20px, env(safe-area-inset-right,0px)); padding-block: 4rem; }
+.label { font-family: var(--sans); font-size: .75rem; font-weight: 600; letter-spacing: .17em; text-transform: uppercase; color: var(--navy-mid); margin: 0; }
+.band--tint { background: var(--paper-2); border-block: 1px solid var(--line); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 600; font-size: .9375rem; padding: .7rem 1.5rem; border-radius: 999px; border: 1px solid var(--navy); background: var(--navy); color: #fff; text-decoration: none; cursor: pointer; transition: background-color .15s ease, border-color .15s ease; }
+.btn:hover { background: var(--navy-mid); border-color: var(--navy-mid); }
+.btn--ghost { background: transparent; color: var(--navy); border-color: var(--line-strong); }
+.btn--ghost:hover { background: var(--paper-3); border-color: var(--navy); }
+.btn--sm { font-size: .875rem; padding: .5rem 1.15rem; }
+.btn--tiny { font-size: .75rem; padding: .3rem .75rem; }
+
+.navy { background: var(--navy-deep); color: #fff; }
+.navy .label { color: var(--on-navy-faint); }
+.navy h1 { color: #fff; }
+.navy .lede { color: var(--on-navy-soft); }
+
+/* header */
+.topbar { position: sticky; top: env(safe-area-inset-top,0px); z-index: 20; background: rgba(255,255,255,.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.topbar__in { max-width: var(--col); margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left,0px)); padding-right: max(20px, env(safe-area-inset-right,0px)); padding-block: .7rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.wordmark { display: flex; align-items: center; gap: .55rem; text-decoration: none; color: var(--ink); font-weight: 600; font-size: 1.125rem; white-space: nowrap; }
+.mark { display: grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 600; font-size: .9375rem; flex: none; }
+.topnav { margin-left: auto; display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; font-family: var(--sans); font-size: .9375rem; font-weight: 500; }
+.topnav a { color: var(--ink-soft); text-decoration: none; }
+.topnav a:hover { color: var(--navy); }
+.topnav a.btn, .topnav a.btn:hover { color: #fff; }
+
+/* hero */
+.navy h1 { font-size: clamp(2.1rem, 5.6vw, 3.3rem); margin-top: .9rem; }
+.lede { font-size: 1.125rem; line-height: 1.45; margin-top: 1.1rem; max-width: 40rem; }
+
+/* link groups */
+.subj { border: 1px solid var(--line); border-radius: 12px; padding: 1.6rem 1.5rem; }
+.subjects { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+.subj h3 { font-size: 1.375rem; font-weight: 600; }
+.subj .spec { font-family: var(--sans); font-size: .75rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--navy-mid); margin-top: .35rem; }
+.links { list-style: none; margin: 1.1rem 0 0; padding: 0; display: grid; gap: .1rem; }
+.links li { border-top: 1px solid var(--line); }
+.links a { display: flex; justify-content: space-between; gap: .75rem; align-items: baseline; padding: .6rem 0; text-decoration: none; color: var(--ink); font-size: 1.0625rem; }
+.links a:hover { color: var(--navy-mid); }
+.links .who { font-family: var(--sans); font-size: .75rem; color: var(--ink-faint); white-space: nowrap; }
+
+/* tracker */
+.panel { border: 1px solid var(--line); border-radius: 12px; background: var(--paper); padding: 1.75rem 1.6rem; margin-top: 2.5rem; }
+.form { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: .9rem; align-items: end; }
+.field { display: grid; gap: .35rem; min-width: 0; }
+.field label { font-family: var(--sans); font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); }
+.field input, .field select {
+  font-family: var(--serif); font-size: 1.0625rem; color: var(--ink);
+  padding: .55rem .7rem; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--paper); width: 100%; min-width: 0;
+}
+.field input:focus, .field select:focus { border-color: var(--navy-mid); outline: none; }
+.form__go { display: flex; align-items: end; }
+
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: 1rem; margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.sum b { display: block; font-size: 1.9rem; font-weight: 500; line-height: 1; color: var(--navy); font-variant-numeric: tabular-nums; }
+.sum span { display: block; font-family: var(--sans); font-size: .8125rem; color: var(--ink-faint); margin-top: .4rem; }
+
+.tablewrap { overflow-x: auto; margin-top: 1.5rem; }
+table { border-collapse: collapse; width: 100%; font-size: 1rem; }
+th { font-family: var(--sans); font-size: .6875rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); text-align: left; padding: .5rem .7rem; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+td { padding: .6rem .7rem; border-bottom: 1px solid var(--line); vertical-align: middle; }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pct { font-family: var(--sans); font-weight: 600; font-size: .875rem; padding: .15rem .5rem; border-radius: 999px; white-space: nowrap; }
+.pct--hi { color: var(--good); background: #e8f3ed; }
+.pct--mid { color: var(--warn); background: #faf2dd; }
+.pct--lo { color: var(--bad); background: #fbecea; }
+.del { border: 0; background: none; color: var(--ink-faint); cursor: pointer; font-family: var(--sans); font-size: .8125rem; padding: .2rem .4rem; border-radius: 6px; }
+.del:hover { color: var(--bad); background: #fbecea; }
+.empty { color: var(--ink-faint); font-size: 1.0625rem; margin-top: 1.5rem; padding: 1.5rem; border: 1px dashed var(--line-strong); border-radius: 10px; text-align: center; }
+.tools { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); align-items: center; }
+.tools .note { font-family: var(--sans); font-size: .8125rem; color: var(--ink-faint); margin-left: auto; }
+
+.callout { background: var(--paper-2); border: 1px solid var(--line); border-radius: 12px; padding: 1.3rem 1.4rem; margin-top: 2rem; }
+.callout p { color: var(--ink-soft); font-size: 1.0625rem; }
+
+footer { border-top: 1px solid var(--line); background: var(--paper-2); }
+.foot__in { max-width: var(--col); margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left,0px)); padding-right: max(20px, env(safe-area-inset-right,0px)); padding-block: 2rem; font-family: var(--sans); font-size: .875rem; color: var(--ink-faint); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.foot__in a { color: var(--ink-soft); text-decoration: none; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+@media (max-width: 46rem) {
+  .topnav a:not(.btn) { display: none; }
+  .topbar__in { flex-wrap: nowrap; }
+  .topnav { margin-left: auto; }
+}
+@media (max-width: 34rem) {
+  body { font-size: 1.125rem; }
+  .wrap { padding-block: 2.75rem; }
+  .panel, .subj { padding: 1.3rem 1.15rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <a class="wordmark" href="index.html"><span class="mark" aria-hidden="true">A</span>GCSE Tuition</a>
+    <nav class="topnav">
+      <a href="index.html#subjects">Subjects</a>
+      <a href="diagnostic.html">Free check</a>
+      <a href="index.html#fees">Fees</a>
+      <a class="btn btn--sm" href="index.html#contact">Book free lesson</a>
+    </nav>
+  </div>
+</header>
+
+<section class="navy">
+  <div class="wrap">
+    <p class="label">Free resource</p>
+    <h1>Past papers, and somewhere to record how they went.</h1>
+    <p class="lede">
+      Every official source for GCSE Maths, Further Maths and Physics papers, in one place — plus a
+      tracker so you can see your marks moving instead of guessing. Nothing to sign up for.
+    </p>
+  </div>
+</section>
+
+<main>
+  <section class="wrap">
+    <p class="label">Where to get them</p>
+    <h2 style="font-size:clamp(1.7rem,3.8vw,2.3rem);margin-top:.7rem">Straight from the boards.</h2>
+    <p style="color:var(--ink-soft);max-width:38rem;margin-top:.9rem">
+      Official pages first — they always have the real mark schemes and examiner reports. Physics &amp;
+      Maths Tutor is listed alongside because it collects papers by year in one scroll, which is faster
+      when you just want the June 2023 paper.
+    </p>
+
+    <div class="subjects">
+      <article class="subj">
+        <h3>GCSE Maths</h3>
+        <p class="spec">Edexcel 1MA1 · AQA 8300 · OCR J560</p>
+        <ul class="links">
+          <li><a href="https://qualifications.pearson.com/en/support/support-topics/exams/past-papers.html?Qualification-Family=GCSE" target="_blank" rel="noopener">Edexcel past papers<span class="who">Official</span></a></li>
+          <li><a href="https://qualifications.pearson.com/en/qualifications/edexcel-gcses/mathematics-2015.coursematerials.html" target="_blank" rel="noopener">Edexcel 1MA1 materials<span class="who">Official</span></a></li>
+          <li><a href="https://www.aqa.org.uk/past-papers-and-mark-schemes-finder" target="_blank" rel="noopener">AQA paper finder<span class="who">Official</span></a></li>
+          <li><a href="https://www.aqa.org.uk/subjects/mathematics/gcse/mathematics-8300" target="_blank" rel="noopener">AQA 8300 subject page<span class="who">Official</span></a></li>
+          <li><a href="https://www.ocr.org.uk/qualifications/gcse/mathematics-j560-from-2015/assessment/" target="_blank" rel="noopener">OCR J560 assessment<span class="who">Official</span></a></li>
+          <li><a href="https://www.physicsandmathstutor.com/past-papers/gcse-maths/edexcel-paper-1/" target="_blank" rel="noopener">PMT — Edexcel by year<span class="who">Archive</span></a></li>
+        </ul>
+      </article>
+
+      <article class="subj">
+        <h3>GCSE Further Maths</h3>
+        <p class="spec">AQA L2 Cert 8365 · OCR FSMQ 6993</p>
+        <ul class="links">
+          <li><a href="https://www.aqa.org.uk/all-about-maths/spec-8365" target="_blank" rel="noopener">AQA 8365 — All About Maths<span class="who">Official</span></a></li>
+          <li><a href="https://www.aqa.org.uk/subjects/mathematics/aqa-certificate/mathematics-8365/specification" target="_blank" rel="noopener">AQA 8365 specification<span class="who">Official</span></a></li>
+          <li><a href="https://www.aqa.org.uk/past-papers-and-mark-schemes-finder" target="_blank" rel="noopener">AQA paper finder<span class="who">Official</span></a></li>
+          <li><a href="https://www.ocr.org.uk/qualifications/fsmq/additional-mathematics/assessment/" target="_blank" rel="noopener">OCR Additional Maths 6993<span class="who">Official</span></a></li>
+        </ul>
+        <p style="font-family:var(--sans);font-size:.8125rem;color:var(--ink-faint);margin-top:1rem">
+          AQA's All About Maths needs a free teacher-area login for some files. The paper finder doesn't.
+        </p>
+      </article>
+
+      <article class="subj">
+        <h3>GCSE Physics</h3>
+        <p class="spec">AQA 8463 · Edexcel 1PH0 · OCR J249</p>
+        <ul class="links">
+          <li><a href="https://www.aqa.org.uk/past-papers-and-mark-schemes-finder" target="_blank" rel="noopener">AQA paper finder<span class="who">Official</span></a></li>
+          <li><a href="https://www.aqa.org.uk/subjects/physics/gcse/physics-8463/specification" target="_blank" rel="noopener">AQA 8463 specification<span class="who">Official</span></a></li>
+          <li><a href="https://qualifications.pearson.com/en/support/support-topics/exams/past-papers.html?Qualification-Family=GCSE" target="_blank" rel="noopener">Edexcel past papers<span class="who">Official</span></a></li>
+          <li><a href="https://www.ocr.org.uk/qualifications/gcse/gateway-science-suite-physics-a-j249-from-2016/assessment/" target="_blank" rel="noopener">OCR Gateway J249<span class="who">Official</span></a></li>
+          <li><a href="https://www.physicsandmathstutor.com/past-papers/gcse-physics/" target="_blank" rel="noopener">PMT — all boards by year<span class="who">Archive</span></a></li>
+          <li><a href="https://www.physicsandmathstutor.com/past-papers/gcse-physics/aqa-paper-1/" target="_blank" rel="noopener">PMT — AQA Paper 1<span class="who">Archive</span></a></li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="callout">
+      <p>
+        <strong>How to actually use a past paper.</strong> Do it timed, in one sitting, without the
+        mark scheme anywhere near you. Mark it yourself afterwards against the real mark scheme and
+        write the reason next to every mark you dropped — not just a cross. A paper you've marked
+        properly is worth five you've skimmed.
+      </p>
+    </div>
+  </section>
+
+  <section class="band--tint">
+    <div class="wrap">
+      <p class="label">Your tracker</p>
+      <h2 style="font-size:clamp(1.7rem,3.8vw,2.3rem);margin-top:.7rem">Log every paper. Watch the line move.</h2>
+      <p style="color:var(--ink-soft);max-width:38rem;margin-top:.9rem">
+        Add a paper each time you sit one. The tracker works out your percentages and shows whether
+        you're actually improving or just doing more papers.
+      </p>
+
+      <div class="panel">
+        <form class="form" id="addForm">
+          <div class="field">
+            <label for="fSubject">Subject</label>
+            <select id="fSubject">
+              <option>Maths</option>
+              <option>Further Maths</option>
+              <option>Physics</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fBoard">Board</label>
+            <select id="fBoard">
+              <option>Edexcel</option>
+              <option>AQA</option>
+              <option>OCR</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fYear">Year</label>
+            <select id="fYear"></select>
+          </div>
+          <div class="field">
+            <label for="fSeries">Series</label>
+            <select id="fSeries">
+              <option>June</option>
+              <option>November</option>
+              <option>Specimen</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fPaper">Paper</label>
+            <input type="text" id="fPaper" placeholder="1H" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="fMark">Mark</label>
+            <input type="number" id="fMark" min="0" step="1" placeholder="62" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="fTotal">Out of</label>
+            <input type="number" id="fTotal" min="1" step="1" placeholder="80" autocomplete="off">
+          </div>
+          <div class="form__go">
+            <button class="btn btn--sm" type="submit">Add paper</button>
+          </div>
+        </form>
+
+        <div class="summary" id="summary" hidden>
+          <div class="sum"><b id="sCount">0</b><span>Papers logged</span></div>
+          <div class="sum"><b id="sAvg">—</b><span>Average</span></div>
+          <div class="sum"><b id="sBest">—</b><span>Best</span></div>
+          <div class="sum"><b id="sTrend">—</b><span>Recent vs earlier</span></div>
+        </div>
+
+        <div id="tableSlot"></div>
+
+        <div class="tools">
+          <button class="btn btn--sm btn--ghost" type="button" id="exportBtn">Export my data</button>
+          <button class="btn btn--sm btn--ghost" type="button" id="importBtn">Import</button>
+          <input type="file" id="importFile" accept="application/json" hidden>
+          <button class="btn btn--sm btn--ghost" type="button" id="clearBtn">Clear all</button>
+          <span class="note" id="saveNote">Saved in this browser only</span>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p>
+          <strong>Where this is stored.</strong> Everything you type stays in this browser on this
+          device. It never reaches me or anyone else — which also means it won't follow you to your
+          phone, and clearing your browsing data will wipe it. If you've built up a term's worth,
+          press <em>Export my data</em> now and again and keep the file somewhere safe.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot__in">
+    <span>GCSE Tuition — Archit Sharma</span>
+    <span><a href="index.html">Main site</a> · <a href="diagnostic.html">Free mark check</a></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var KEY = 'at_papers_v1';
+  var rows = [];
+
+  // year dropdown, newest first
+  var ySel = document.getElementById('fYear');
+  var thisYear = new Date().getFullYear();
+  for (var y = thisYear; y >= 2017; y--) {
+    var o = document.createElement('option');
+    o.value = o.textContent = y;
+    ySel.appendChild(o);
+  }
+
+  function load() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      rows = raw ? JSON.parse(raw) : [];
+      if (!Array.isArray(rows)) rows = [];
+    } catch (e) { rows = []; }
+  }
+  function save() {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(rows));
+      note('Saved in this browser only');
+    } catch (e) {
+      note('Could not save — storage is blocked in this browser');
+    }
+  }
+  function note(t) { document.getElementById('saveNote').textContent = t; }
+
+  function pctClass(p) { return p >= 75 ? 'pct--hi' : (p >= 50 ? 'pct--mid' : 'pct--lo'); }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function render() {
+    var slot = document.getElementById('tableSlot');
+    var sum = document.getElementById('summary');
+
+    if (!rows.length) {
+      sum.hidden = true;
+      slot.innerHTML = '<p class="empty">No papers logged yet. Add your first one above — even an old mock counts as a baseline.</p>';
+      return;
+    }
+    sum.hidden = false;
+
+    var sorted = rows.slice().sort(function (a, b) {
+      return (b.year - a.year) || String(b.added).localeCompare(String(a.added));
+    });
+
+    var body = sorted.map(function (r) {
+      var p = Math.round(r.mark / r.total * 100);
+      return '<tr>' +
+        '<td>' + esc(r.subject) + '</td>' +
+        '<td>' + esc(r.board) + ' ' + esc(r.paper) + '</td>' +
+        '<td class="num">' + esc(r.series) + ' ' + esc(r.year) + '</td>' +
+        '<td class="num">' + r.mark + ' / ' + r.total + '</td>' +
+        '<td><span class="pct ' + pctClass(p) + '">' + p + '%</span></td>' +
+        '<td style="text-align:right"><button class="del" data-id="' + esc(r.id) + '" type="button" aria-label="Remove this paper">Remove</button></td>' +
+      '</tr>';
+    }).join('');
+
+    slot.innerHTML =
+      '<div class="tablewrap"><table>' +
+        '<thead><tr><th>Subject</th><th>Paper</th><th>Series</th><th>Mark</th><th>%</th><th></th></tr></thead>' +
+        '<tbody>' + body + '</tbody>' +
+      '</table></div>';
+
+    var pcts = rows.map(function (r) { return r.mark / r.total * 100; });
+    var avg = pcts.reduce(function (a, b) { return a + b; }, 0) / pcts.length;
+    document.getElementById('sCount').textContent = rows.length;
+    document.getElementById('sAvg').textContent = Math.round(avg) + '%';
+    document.getElementById('sBest').textContent = Math.round(Math.max.apply(null, pcts)) + '%';
+
+    // trend: compare the most recent third against the earliest third, by entry order
+    var byAdded = rows.slice().sort(function (a, b) { return String(a.added).localeCompare(String(b.added)); });
+    var trendEl = document.getElementById('sTrend');
+    if (byAdded.length < 4) {
+      trendEl.textContent = '—';
+      trendEl.nextElementSibling.textContent = 'Log 4+ to see a trend';
+    } else {
+      var n = Math.max(2, Math.floor(byAdded.length / 3));
+      var early = byAdded.slice(0, n), late = byAdded.slice(-n);
+      var m = function (arr) { return arr.reduce(function (s, r) { return s + r.mark / r.total * 100; }, 0) / arr.length; };
+      var diff = Math.round(m(late) - m(early));
+      trendEl.textContent = (diff > 0 ? '+' : '') + diff + ' pts';
+      trendEl.style.color = diff > 0 ? 'var(--good)' : (diff < 0 ? 'var(--bad)' : 'var(--navy)');
+      trendEl.nextElementSibling.textContent = 'Recent vs earlier';
+    }
+  }
+
+  document.getElementById('addForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var mark = parseInt(document.getElementById('fMark').value, 10);
+    var total = parseInt(document.getElementById('fTotal').value, 10);
+    var paper = document.getElementById('fPaper').value.trim();
+    if (!(total > 0) || !(mark >= 0)) { note('Enter a mark and a total first'); return; }
+    if (mark > total) { note('Mark can’t be more than the total'); return; }
+    rows.push({
+      id: String(Date.now()) + Math.random().toString(36).slice(2, 7),
+      added: new Date().toISOString(),
+      subject: document.getElementById('fSubject').value,
+      board: document.getElementById('fBoard').value,
+      year: document.getElementById('fYear').value,
+      series: document.getElementById('fSeries').value,
+      paper: paper || '—',
+      mark: mark, total: total
+    });
+    save(); render();
+    document.getElementById('fMark').value = '';
+    document.getElementById('fPaper').value = '';
+    document.getElementById('fMark').focus();
+  });
+
+  document.getElementById('tableSlot').addEventListener('click', function (e) {
+    var b = e.target.closest('.del');
+    if (!b) return;
+    rows = rows.filter(function (r) { return r.id !== b.dataset.id; });
+    save(); render();
+  });
+
+  document.getElementById('exportBtn').addEventListener('click', function () {
+    var text = JSON.stringify(rows, null, 2);
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(
+        function () { note('Copied to your clipboard — paste it somewhere safe'); },
+        function () { downloadFallback(text); }
+      );
+    } else { downloadFallback(text); }
+  });
+  function downloadFallback(text) {
+    try {
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([text], { type: 'application/json' }));
+      a.download = 'paper-tracker.json';
+      document.body.appendChild(a); a.click(); a.remove();
+      note('Downloaded as paper-tracker.json');
+    } catch (e) { note('Copy failed — select the table and copy it manually'); }
+  }
+
+  document.getElementById('importBtn').addEventListener('click', function () {
+    document.getElementById('importFile').click();
+  });
+  document.getElementById('importFile').addEventListener('change', function (e) {
+    var f = e.target.files && e.target.files[0];
+    if (!f) return;
+    var fr = new FileReader();
+    fr.onload = function () {
+      try {
+        var data = JSON.parse(fr.result);
+        if (!Array.isArray(data)) throw new Error('bad');
+        var ok = data.filter(function (r) { return r && r.total > 0 && r.mark >= 0; });
+        rows = rows.concat(ok);
+        save(); render();
+        note('Imported ' + ok.length + ' paper' + (ok.length === 1 ? '' : 's'));
+      } catch (err) { note('That file was not a tracker export'); }
+    };
+    fr.readAsText(f);
+    e.target.value = '';
+  });
+
+  document.getElementById('clearBtn').addEventListener('click', function () {
+    if (!rows.length) return;
+    var b = this;
+    if (b.dataset.armed === '1') {
+      rows = []; save(); render();
+      b.textContent = 'Clear all'; b.dataset.armed = '';
+      note('Tracker cleared');
+    } else {
+      b.textContent = 'Tap again to confirm'; b.dataset.armed = '1';
+      setTimeout(function () { b.textContent = 'Clear all'; b.dataset.armed = ''; }, 4000);
+    }
+  });
+
+  load(); render();
+})();
+</script>
+</body>
+</html>

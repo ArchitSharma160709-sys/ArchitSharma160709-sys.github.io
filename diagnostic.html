@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Where Are Your Marks Going?</title>
-<meta name="description" content="A free six-question GCSE Maths check that shows whether you're losing marks to the maths or to the working you didn't write down.">
+<meta name="description" content="Free GCSE mark checks in Maths, Further Maths and Physics. Eight questions each, with the mark scheme split into method and accuracy so you can see which kind of mark you're losing.">
 <meta name="theme-color" content="#0d1d3d">
 <meta property="og:title" content="Where are your marks going? — GCSE Tuition with Archit Sharma">
-<meta property="og:description" content="Six questions. Find out whether you're losing marks to the maths or to the method you didn't show.">
+<meta property="og:description" content="Eight questions in Maths, Further Maths or Physics. Find out whether you're losing marks to the maths or to the working you never wrote down.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,56 +34,57 @@ a { color: var(--navy-mid); }
 :focus-visible { outline: 2px solid var(--navy-mid); outline-offset: 3px; }
 
 .wrap { max-width: var(--col); margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left,0px)); padding-right: max(20px, env(safe-area-inset-right,0px)); padding-block: 4rem; }
-.label { font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.17em; text-transform: uppercase; color: var(--navy-mid); margin: 0; }
+.label { font-family: var(--sans); font-size: .75rem; font-weight: 600; letter-spacing: .17em; text-transform: uppercase; color: var(--navy-mid); margin: 0; }
 
-.btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 600; font-size: 0.9375rem; padding: 0.7rem 1.5rem; border-radius: 999px; border: 1px solid var(--navy); background: var(--navy); color: #fff; text-decoration: none; cursor: pointer; transition: background-color .15s ease, border-color .15s ease; }
+.btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 600; font-size: .9375rem; padding: .7rem 1.5rem; border-radius: 999px; border: 1px solid var(--navy); background: var(--navy); color: #fff; text-decoration: none; cursor: pointer; transition: background-color .15s ease, border-color .15s ease, color .15s ease; }
 .btn:hover { background: var(--navy-mid); border-color: var(--navy-mid); }
-.btn:disabled { opacity: .45; cursor: not-allowed; }
 .btn--ghost { background: transparent; color: var(--navy); border-color: var(--line-strong); }
 .btn--ghost:hover { background: var(--paper-3); border-color: var(--navy); color: var(--navy); }
-.btn--sm { font-size: 0.875rem; padding: 0.5rem 1.15rem; }
+.btn--sm { font-size: .875rem; padding: .5rem 1.15rem; }
 
-/* header */
 .topbar { position: sticky; top: env(safe-area-inset-top,0px); z-index: 20; background: rgba(255,255,255,.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .topbar__in { max-width: var(--col); margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left,0px)); padding-right: max(20px, env(safe-area-inset-right,0px)); padding-block: .6rem; display: flex; align-items: center; gap: .75rem; flex-wrap: nowrap; }
 .wordmark { display: flex; align-items: center; gap: .5rem; text-decoration: none; color: var(--ink); font-weight: 600; font-size: 1.0625rem; white-space: nowrap; }
 .mark { display: grid; place-items: center; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 600; font-size: .875rem; flex: none; }
 .topbar .btn { margin-left: auto; white-space: nowrap; }
 
-/* hero */
 .navy { background: var(--navy-deep); color: #fff; }
 .navy .label { color: var(--on-navy-faint); }
 .navy h1 { font-size: clamp(2.1rem, 6vw, 3.4rem); margin-top: 1rem; color: #fff; }
 .navy h1 em { font-style: italic; color: var(--on-navy-soft); }
 .navy .lede { font-size: 1.125rem; line-height: 1.45; color: var(--on-navy-soft); margin-top: 1.1rem; max-width: 38rem; }
-.meta { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem; font-family: var(--sans); font-size: .875rem; color: var(--on-navy-faint); }
-.meta b { display: block; font-family: var(--serif); font-size: 1.5rem; font-weight: 500; color: #fff; }
 
-.note { background: var(--paper-2); border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem 1.4rem; margin-top: 2.5rem; }
+/* subject picker */
+.picker { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: .75rem; margin-top: 2rem; }
+.pick {
+  font-family: var(--sans); font-weight: 600; font-size: .9375rem;
+  text-align: left; padding: 1rem 1.1rem; border-radius: 10px; cursor: pointer;
+  border: 1px solid var(--on-navy-line); background: rgba(255,255,255,.05); color: #fff;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.pick span { display: block; font-weight: 400; font-size: .8125rem; color: var(--on-navy-faint); margin-top: .25rem; }
+.pick:hover { background: rgba(255,255,255,.12); border-color: var(--on-navy-soft); }
+.pick[aria-pressed="true"] { background: #fff; color: var(--navy-deep); border-color: #fff; }
+.pick[aria-pressed="true"] span { color: var(--navy-mid); }
+
+.note { background: var(--paper-2); border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem 1.4rem; }
 .note p { color: var(--ink-soft); font-size: 1.0625rem; }
 .note p + p { margin-top: .6rem; }
 
-/* progress */
-.prog { position: sticky; top: calc(env(safe-area-inset-top,0px) + 3.05rem); z-index: 15; background: var(--paper); border-bottom: 1px solid var(--line); }
+.prog { position: sticky; top: calc(env(safe-area-inset-top,0px) + 2.95rem); z-index: 15; background: var(--paper); border-bottom: 1px solid var(--line); }
 .prog__in { max-width: var(--col); margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left,0px)); padding-right: max(20px, env(safe-area-inset-right,0px)); padding-block: .7rem; display: flex; align-items: center; gap: .9rem; font-family: var(--sans); font-size: .8125rem; color: var(--ink-faint); }
 .bar { flex: 1; height: 5px; background: var(--paper-3); border-radius: 999px; overflow: hidden; min-width: 0; }
 .bar span { display: block; height: 100%; width: 0; background: var(--navy); border-radius: 999px; transition: width .4s ease; }
 
-/* questions */
 .q { border: 1px solid var(--line); border-radius: 12px; padding: 1.75rem 1.6rem; margin-top: 1.25rem; background: var(--paper); }
 .q__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
 .q__n { font-family: var(--sans); font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--navy-mid); }
 .q__marks { font-family: var(--sans); font-size: .8125rem; color: var(--ink-faint); white-space: nowrap; }
 .q__text { font-size: 1.25rem; margin-top: .85rem; }
-.q__text .expr { font-family: var(--serif); font-style: italic; white-space: nowrap; }
 .q__hint { font-family: var(--sans); font-size: .875rem; color: var(--ink-faint); margin-top: .6rem; }
 
 .answer { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.1rem; align-items: center; }
-.answer input {
-  font-family: var(--serif); font-size: 1.125rem; color: var(--ink);
-  padding: .6rem .9rem; border: 1px solid var(--line-strong); border-radius: 999px;
-  background: var(--paper); min-width: 0; flex: 1 1 12rem; max-width: 20rem;
-}
+.answer input { font-family: var(--serif); font-size: 1.125rem; color: var(--ink); padding: .6rem .9rem; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--paper); min-width: 0; flex: 1 1 12rem; max-width: 20rem; }
 .answer input:focus { border-color: var(--navy-mid); outline: none; }
 
 .scheme { margin-top: 1.4rem; padding-top: 1.3rem; border-top: 1px solid var(--line); }
@@ -92,16 +93,13 @@ a { color: var(--navy-mid); }
 .verdict--good { background: var(--good-bg); color: var(--good); }
 .verdict--miss { background: var(--miss-bg); color: var(--miss); }
 .steps { list-style: none; margin: 1.1rem 0 0; padding: 0; display: grid; gap: .55rem; }
-.steps li { display: flex; gap: .75rem; align-items: flex-start; }
 .steps label { display: flex; gap: .7rem; align-items: flex-start; cursor: pointer; font-size: 1.0625rem; color: var(--ink-soft); line-height: 1.4; }
 .steps input { margin: .35rem 0 0; width: 1.05rem; height: 1.05rem; accent-color: var(--navy); flex: none; cursor: pointer; }
-.steps .tag { font-family: var(--sans); font-size: .6875rem; font-weight: 600; letter-spacing: .08em; color: var(--navy-mid); background: var(--paper-3); border-radius: 4px; padding: .12rem .4rem; flex: none; margin-top: .2rem; }
+.tag { font-family: var(--sans); font-size: .6875rem; font-weight: 600; letter-spacing: .08em; color: var(--navy-mid); background: var(--paper-3); border-radius: 4px; padding: .12rem .4rem; }
 .ask { font-family: var(--sans); font-size: .875rem; color: var(--ink-faint); margin-top: 1rem; }
 
-/* result */
 .result { border: 1.5px solid var(--navy); border-radius: 12px; padding: 2rem 1.75rem; margin-top: 2rem; }
 .score { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.4rem; }
-.score div { min-width: 0; }
 .score b { display: block; font-size: 2.5rem; font-weight: 500; line-height: 1; color: var(--navy); font-variant-numeric: tabular-nums; }
 .score span { font-family: var(--sans); font-size: .8125rem; color: var(--ink-faint); display: block; margin-top: .4rem; }
 .readout { margin-top: 1.6rem; font-size: 1.125rem; color: var(--ink); }
@@ -110,6 +108,7 @@ a { color: var(--navy-mid); }
 
 footer { border-top: 1px solid var(--line); background: var(--paper-2); margin-top: 3rem; }
 .foot__in { max-width: var(--col); margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left,0px)); padding-right: max(20px, env(safe-area-inset-right,0px)); padding-block: 2rem; font-family: var(--sans); font-size: .8125rem; color: var(--ink-faint); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.foot__in a { color: var(--ink-soft); text-decoration: none; }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 @media (max-width: 34rem) {
@@ -131,43 +130,40 @@ footer { border-top: 1px solid var(--line); background: var(--paper-2); margin-t
 
 <section class="navy">
   <div class="wrap">
-    <p class="label">Free check · GCSE Maths · Higher</p>
+    <p class="label">Free check · No sign-up</p>
     <h1>Where are your marks <em>actually</em> going?</h1>
     <p class="lede">
-      Most students who get a 6 instead of an 8 don't have a maths problem. They have a
-      writing-it-down problem. Six questions, twenty marks — this tells you which one you have.
+      Most students who get a 6 instead of an 8 don't have a subject problem. They have a
+      writing-it-down problem. Eight questions, and at the end you'll know which one you have.
     </p>
-    <div class="meta">
-      <span><b>6</b>questions</span>
-      <span><b>20</b>marks</span>
-      <span><b>~15</b>minutes</span>
+    <div class="picker" role="group" aria-label="Choose a subject">
+      <button class="pick" type="button" data-subject="maths" aria-pressed="false">GCSE Maths<span>8 questions · 27 marks</span></button>
+      <button class="pick" type="button" data-subject="further" aria-pressed="false">Further Maths<span>8 questions · 27 marks</span></button>
+      <button class="pick" type="button" data-subject="physics" aria-pressed="false">GCSE Physics<span>8 questions · 23 marks</span></button>
     </div>
   </div>
 </section>
 
 <div class="prog">
   <div class="prog__in">
-    <span id="progText">0 of 6 marked</span>
+    <span id="progText">Choose a subject to begin</span>
     <span class="bar"><span id="progBar"></span></span>
   </div>
 </div>
 
 <main class="wrap" style="padding-block:2.5rem 4rem">
-
-  <div class="note">
+  <div class="note" id="intro">
     <p><strong>Do these on paper first.</strong> Work each one out properly, the way you would in an exam — then type your final answer in.</p>
     <p>After you check an answer you'll see the mark scheme split into method marks and accuracy marks. Tick only the lines you <em>actually wrote down</em>. Being honest here is the entire point; nobody sees this but you.</p>
   </div>
-
   <div id="questions"></div>
-
   <div id="resultSlot"></div>
 </main>
 
 <footer>
   <div class="foot__in">
     <span>GCSE Tuition — Archit Sharma</span>
-    <span><a href="index.html">Back to the main site</a></span>
+    <span><a href="index.html">Main site</a> · <a href="papers.html">Past papers</a></span>
   </div>
 </footer>
 
@@ -175,157 +171,232 @@ footer { border-top: 1px solid var(--line); background: var(--paper-2); margin-t
 (function () {
   "use strict";
 
-  // Original questions written in GCSE Higher style. Mark schemes follow the usual
+  // All questions are original, written in exam style. Mark schemes use the usual
   // M (method) / A (accuracy) split.
-  var QS = [
-    {
-      text: 'Solve <span class="expr">3x² − 11x + 6 = 0</span>',
-      hint: 'Give both solutions.',
-      marks: 3,
-      accept: ['3,2/3', '3,0.667', '3,0.67', '2/3,3', '0.667,3', '0.67,3', 'x=3,x=2/3'],
-      shown: 'x = 3 and x = 2/3',
-      steps: [
-        { tag: 'M1', text: 'Wrote the factorisation (3x − 2)(x − 3), or the quadratic formula with a, b and c substituted in' }
-      ],
-      acc: 2,
-      accNote: 'A2 — one mark for each correct solution'
-    },
-    {
-      text: 'Make <span class="expr">r</span> the subject of <span class="expr">V = ⁴⁄₃πr³</span>',
-      hint: 'Type your answer as a formula, e.g. r = cbrt(3V/4pi)',
-      marks: 3,
-      accept: ['r=cbrt(3v/4pi)', 'cbrt(3v/4pi)', 'r=(3v/4pi)^(1/3)', '(3v/4pi)^(1/3)', 'r=(3v/(4pi))^(1/3)', 'r=cuberoot(3v/4pi)'],
-      shown: 'r = ∛(3V / 4π)',
-      steps: [
-        { tag: 'M1', text: 'Multiplied both sides by 3 to clear the fraction: 3V = 4πr³' },
-        { tag: 'M1', text: 'Divided to isolate r³: r³ = 3V / 4π' }
-      ],
-      acc: 1,
-      accNote: 'A1 — correct cube root taken'
-    },
-    {
-      text: 'A bag holds 5 red counters and 3 blue. Two are taken at random without replacement. Find the probability they are the same colour.',
-      hint: 'Give a fraction in its simplest form.',
-      marks: 4,
-      accept: ['13/28', '0.464', '0.4643', '0.46'],
-      shown: '13/28',
-      steps: [
-        { tag: 'M1', text: 'Wrote P(both red) = 5/8 × 4/7' },
-        { tag: 'M1', text: 'Wrote P(both blue) = 3/8 × 2/7' },
-        { tag: 'M1', text: 'Added the two probabilities rather than multiplying or subtracting' }
-      ],
-      acc: 1,
-      accNote: 'A1 — correct simplified fraction'
-    },
-    {
-      text: 'Simplify fully <span class="expr">(√12 + √27) ÷ √3</span>',
-      hint: 'The answer is a whole number.',
-      marks: 3,
-      accept: ['5'],
-      shown: '5',
-      steps: [
-        { tag: 'M1', text: 'Wrote √12 = 2√3 and √27 = 3√3' },
-        { tag: 'M1', text: 'Combined the surds to 5√3 before dividing' }
-      ],
-      acc: 1,
-      accNote: 'A1 — correct final value'
-    },
-    {
-      text: 'A is (1, 4) and B is (5, 2). Find the equation of the perpendicular bisector of AB.',
-      hint: 'Give it in the form y = mx + c.',
-      marks: 4,
-      accept: ['y=2x-3', 'y=2x−3', '2x-3', 'y = 2x - 3'],
-      shown: 'y = 2x − 3',
-      steps: [
-        { tag: 'M1', text: 'Found the midpoint of AB as (3, 3)' },
-        { tag: 'M1', text: 'Found the gradient of AB as −1/2' },
-        { tag: 'M1', text: 'Used the negative reciprocal to get a perpendicular gradient of 2' }
-      ],
-      acc: 1,
-      accNote: 'A1 — correct equation, fully simplified'
-    },
-    {
-      text: 'A jacket costs £63 in a sale after a 10% discount. Find the original price.',
-      hint: 'Give your answer in pounds.',
-      marks: 3,
-      accept: ['70', '£70', '70.00', '£70.00'],
-      shown: '£70',
-      steps: [
-        { tag: 'M1', text: 'Recognised that £63 represents 90% of the original, not 100%' },
-        { tag: 'M1', text: 'Wrote the division 63 ÷ 0.9 (or 63 ÷ 90 × 100)' }
-      ],
-      acc: 1,
-      accNote: 'A1 — correct original price'
-    }
-  ];
+  var BANKS = {
+    maths: {
+      name: 'GCSE Maths',
+      qs: [
+        { text: 'Solve <em>3x² − 11x + 6 = 0</em>', hint: 'Give both solutions.', marks: 3,
+          accept: ['3,2/3','2/3,3','3,0.667','0.667,3','3,0.67','0.67,3','x=3,x=2/3'],
+          shown: 'x = 3 and x = 2/3', acc: 2, accNote: 'A2 — one mark for each correct solution',
+          steps: [{ tag:'M1', text:'Wrote the factorisation (3x − 2)(x − 3), or the quadratic formula with a, b and c substituted in' }] },
 
-  var state = QS.map(function () { return { checked: false, right: false, method: 0 }; });
+        { text: 'Make <em>r</em> the subject of <em>V = ⁴⁄₃πr³</em>', hint: 'Type it as a formula, e.g. r = cbrt(3V/4pi)', marks: 3,
+          accept: ['r=cbrt(3v/4pi)','cbrt(3v/4pi)','r=(3v/4pi)^(1/3)','(3v/4pi)^(1/3)','r=(3v/(4pi))^(1/3)','r=cuberoot(3v/4pi)'],
+          shown: 'r = ∛(3V / 4π)', acc: 1, accNote: 'A1 — correct cube root taken',
+          steps: [{ tag:'M1', text:'Multiplied both sides by 3 to clear the fraction: 3V = 4πr³' },
+                  { tag:'M1', text:'Divided to isolate r³: r³ = 3V / 4π' }] },
+
+        { text: 'A bag holds 5 red counters and 3 blue. Two are taken at random without replacement. Find the probability they are the same colour.', hint: 'Give a fraction in its simplest form.', marks: 4,
+          accept: ['13/28','0.464','0.4643','0.46'],
+          shown: '13/28', acc: 1, accNote: 'A1 — correct simplified fraction',
+          steps: [{ tag:'M1', text:'Wrote P(both red) = 5/8 × 4/7' },
+                  { tag:'M1', text:'Wrote P(both blue) = 3/8 × 2/7' },
+                  { tag:'M1', text:'Added the two probabilities rather than multiplying or subtracting' }] },
+
+        { text: 'Simplify fully <em>(√12 + √27) ÷ √3</em>', hint: 'The answer is a whole number.', marks: 3,
+          accept: ['5'], shown: '5', acc: 1, accNote: 'A1 — correct final value',
+          steps: [{ tag:'M1', text:'Wrote √12 = 2√3 and √27 = 3√3' },
+                  { tag:'M1', text:'Combined the surds to 5√3 before dividing' }] },
+
+        { text: 'A is (1, 4) and B is (5, 2). Find the equation of the perpendicular bisector of AB.', hint: 'Give it in the form y = mx + c.', marks: 4,
+          accept: ['y=2x-3','y=2x−3','2x-3'], shown: 'y = 2x − 3', acc: 1, accNote: 'A1 — correct equation, fully simplified',
+          steps: [{ tag:'M1', text:'Found the midpoint of AB as (3, 3)' },
+                  { tag:'M1', text:'Found the gradient of AB as −1/2' },
+                  { tag:'M1', text:'Used the negative reciprocal to get a perpendicular gradient of 2' }] },
+
+        { text: 'A jacket costs £63 in a sale after a 10% discount. Find the original price.', hint: 'Give your answer in pounds.', marks: 3,
+          accept: ['70','£70','70.00','£70.00'], shown: '£70', acc: 1, accNote: 'A1 — correct original price',
+          steps: [{ tag:'M1', text:'Recognised that £63 represents 90% of the original, not 100%' },
+                  { tag:'M1', text:'Wrote the division 63 ÷ 0.9 (or 63 ÷ 90 × 100)' }] },
+
+        { text: 'Solve the simultaneous equations <em>y = x² − 3x + 4</em> and <em>y = 2x − 2</em>', hint: 'Give both coordinate pairs, e.g. (2,2) and (3,4)', marks: 4,
+          accept: ['(2,2)and(3,4)','(2,2),(3,4)','(3,4),(2,2)','(3,4)and(2,2)','x=2,y=2,x=3,y=4','2,2,3,4'],
+          shown: '(2, 2) and (3, 4)', acc: 1, accNote: 'A1 — both pairs correct and paired up properly',
+          steps: [{ tag:'M1', text:'Set the two expressions for y equal to each other' },
+                  { tag:'M1', text:'Rearranged to the quadratic x² − 5x + 6 = 0' },
+                  { tag:'M1', text:'Solved to x = 2 and x = 3, then substituted back to find each y' }] },
+
+        { text: 'Find the nth term of the quadratic sequence <em>3, 10, 21, 36, 55, …</em>', hint: 'Type it like 2n^2+n', marks: 3,
+          accept: ['2n^2+n','2n²+n','2n^2 + n','n+2n^2','2nn+n'], shown: '2n² + n', acc: 1, accNote: 'A1 — fully correct nth term',
+          steps: [{ tag:'M1', text:'Found the second difference of 4 and so the 2n² term' },
+                  { tag:'M1', text:'Subtracted 2n² from the sequence to leave 1, 2, 3, 4, 5 and identified the linear part' }] }
+      ]
+    },
+
+    further: {
+      name: 'Further Maths',
+      qs: [
+        { text: 'Differentiate <em>y = 3x⁴ − 5x² + 7</em>', hint: 'Type it like 12x^3-10x', marks: 2,
+          accept: ['12x^3-10x','12x³-10x','12x^3 - 10x','dy/dx=12x^3-10x'], shown: 'dy/dx = 12x³ − 10x', acc: 1, accNote: 'A1 — fully correct derivative',
+          steps: [{ tag:'M1', text:'Brought a power down and reduced it by one on at least one term' }] },
+
+        { text: 'Find the coordinates of the stationary points of <em>y = x³ − 3x² − 9x + 5</em>', hint: 'Give both points, e.g. (3,-22) and (-1,10)', marks: 4,
+          accept: ['(3,-22)and(-1,10)','(3,-22),(-1,10)','(-1,10),(3,-22)','(-1,10)and(3,-22)','(3,−22)and(−1,10)'],
+          shown: '(3, −22) and (−1, 10)', acc: 1, accNote: 'A1 — both points fully correct',
+          steps: [{ tag:'M1', text:'Differentiated to 3x² − 6x − 9' },
+                  { tag:'M1', text:'Set the derivative equal to zero' },
+                  { tag:'M1', text:'Solved to x = 3 and x = −1, then substituted back into y to get each coordinate' }] },
+
+        { text: 'Show that <em>(x − 2)</em> is a factor of <em>f(x) = x³ − 4x² + x + 6</em> and factorise f(x) fully.', hint: 'Type the full factorisation, e.g. (x-2)(x-3)(x+1)', marks: 4,
+          accept: ['(x-2)(x-3)(x+1)','(x-2)(x+1)(x-3)','(x+1)(x-2)(x-3)','(x-3)(x-2)(x+1)','(x-3)(x+1)(x-2)','(x+1)(x-3)(x-2)'],
+          shown: '(x − 2)(x − 3)(x + 1)', acc: 1, accNote: 'A1 — fully correct factorisation',
+          steps: [{ tag:'M1', text:'Evaluated f(2) and showed it equals 0' },
+                  { tag:'M1', text:'Divided by (x − 2), or compared coefficients, to reach x² − 2x − 3' },
+                  { tag:'M1', text:'Factorised that quadratic into (x − 3)(x + 1)' }] },
+
+        { text: 'Solve <em>2sin²θ + 3cosθ = 3</em> for <em>0° &lt; θ &lt; 360°</em>', hint: 'Give both angles in degrees, e.g. 60,300', marks: 4,
+          accept: ['60,300','300,60','60°,300°','θ=60,θ=300'], shown: 'θ = 60° and θ = 300°', acc: 1, accNote: 'A1 — both angles, and no extras outside the range',
+          steps: [{ tag:'M1', text:'Replaced sin²θ with 1 − cos²θ to get everything in terms of cosθ' },
+                  { tag:'M1', text:'Formed the quadratic 2cos²θ − 3cosθ + 1 = 0' },
+                  { tag:'M1', text:'Solved it to cosθ = 1/2 (rejecting cosθ = 1, which falls outside the open range)' }] },
+
+        { text: 'The circle <em>x² + y² − 6x + 4y − 12 = 0</em>. Find its centre and radius.', hint: 'Type like (3,-2) r=5', marks: 3,
+          accept: ['(3,-2)r=5','(3,-2),5','centre(3,-2)radius5','(3,-2) r=5','(3,−2)r=5','3,-2,5'],
+          shown: 'centre (3, −2), radius 5', acc: 1, accNote: 'A1 — both centre and radius correct',
+          steps: [{ tag:'M1', text:'Completed the square in x and in y' },
+                  { tag:'M1', text:'Rearranged to (x − 3)² + (y + 2)² = 25' }] },
+
+        { text: 'A = [[2, 1], [0, 3]] and B = [[1, 4], [2, 0]]. Find the matrix <em>AB</em>.', hint: 'Type the four entries in order, e.g. 4,8,6,0', marks: 3,
+          accept: ['4,8,6,0','[[4,8],[6,0]]','4 8 6 0'], shown: 'AB = [[4, 8], [6, 0]]', acc: 1, accNote: 'A1 — all four entries correct',
+          steps: [{ tag:'M1', text:'Used rows of A against columns of B rather than multiplying entry by entry' },
+                  { tag:'M1', text:'Got at least two of the four entries right' }] },
+
+        { text: 'Find the equation of the tangent to <em>y = x² − 4x + 1</em> at the point where <em>x = 3</em>.', hint: 'Give it in the form y = mx + c.', marks: 4,
+          accept: ['y=2x-8','y=2x−8','2x-8'], shown: 'y = 2x − 8', acc: 1, accNote: 'A1 — correct tangent equation',
+          steps: [{ tag:'M1', text:'Differentiated to dy/dx = 2x − 4' },
+                  { tag:'M1', text:'Substituted x = 3 to get a gradient of 2' },
+                  { tag:'M1', text:'Found the y-coordinate −2 and used it in the straight-line equation' }] },
+
+        { text: 'Simplify <em>(x² − 9) ÷ (x² + x − 12)</em>', hint: 'Type like (x+3)/(x+4)', marks: 3,
+          accept: ['(x+3)/(x+4)','x+3/x+4'], shown: '(x + 3) / (x + 4)', acc: 1, accNote: 'A1 — fully simplified',
+          steps: [{ tag:'M1', text:'Factorised the numerator to (x − 3)(x + 3)' },
+                  { tag:'M1', text:'Factorised the denominator to (x + 4)(x − 3)' }] }
+      ]
+    },
+
+    physics: {
+      name: 'GCSE Physics',
+      qs: [
+        { text: 'A car of mass 1200 kg accelerates from rest to 18 m/s in 6 s. Calculate the resultant force.', hint: 'Give your answer in newtons.', marks: 3,
+          accept: ['3600','3600n','3600 n'], shown: '3600 N', acc: 1, accNote: 'A1 — correct value with the unit',
+          steps: [{ tag:'M1', text:'Found the acceleration using a = Δv ÷ t = 3 m/s²' },
+                  { tag:'M1', text:'Wrote F = ma with both values substituted in' }] },
+
+        { text: 'Calculate the kinetic energy of a 0.45 kg ball travelling at 12 m/s.', hint: 'Give your answer in joules.', marks: 3,
+          accept: ['32.4','32.4j','32.4 j'], shown: '32.4 J', acc: 1, accNote: 'A1 — correct value with the unit',
+          steps: [{ tag:'M1', text:'Wrote the equation E = ½mv² before substituting' },
+                  { tag:'M1', text:'Squared the speed rather than doubling it (144, not 24)' }] },
+
+        { text: 'A 12 V supply is connected to a 4 Ω resistor in series with an 8 Ω resistor. Calculate the current.', hint: 'Give your answer in amps.', marks: 3,
+          accept: ['1','1a','1 a','1.0'], shown: '1 A', acc: 1, accNote: 'A1 — correct current',
+          steps: [{ tag:'M1', text:'Added the series resistances to get 12 Ω' },
+                  { tag:'M1', text:'Rearranged V = IR to I = V ÷ R' }] },
+
+        { text: 'A wave has a frequency of 50 Hz and a wavelength of 6 m. Calculate its speed.', hint: 'Give your answer in m/s.', marks: 2,
+          accept: ['300','300m/s','300 m/s'], shown: '300 m/s', acc: 1, accNote: 'A1 — correct speed',
+          steps: [{ tag:'M1', text:'Wrote v = fλ before substituting' }] },
+
+        { text: 'A motor is supplied with 2000 J and transfers 1400 J usefully. Calculate its efficiency as a percentage.', hint: 'Give your answer as a percentage.', marks: 3,
+          accept: ['70','70%','0.7'], shown: '70%', acc: 1, accNote: 'A1 — correct efficiency',
+          steps: [{ tag:'M1', text:'Wrote useful energy ÷ total energy, the right way up' },
+                  { tag:'M1', text:'Multiplied by 100 to convert to a percentage' }] },
+
+        { text: 'A block has a volume of 0.002 m³ and a mass of 5.4 kg. Calculate its density.', hint: 'Give your answer in kg/m³.', marks: 2,
+          accept: ['2700','2700kg/m3','2700 kg/m3','2700kg/m³'], shown: '2700 kg/m³', acc: 1, accNote: 'A1 — correct density',
+          steps: [{ tag:'M1', text:'Wrote density = mass ÷ volume with the values substituted' }] },
+
+        { text: 'A 60 W lamp is switched on for 5 minutes. Calculate the energy transferred, in kJ.', hint: 'Give your answer in kilojoules.', marks: 3,
+          accept: ['18','18kj','18 kj'], shown: '18 kJ', acc: 1, accNote: 'A1 — correct value in kJ, not J',
+          steps: [{ tag:'M1', text:'Converted 5 minutes into 300 seconds before substituting' },
+                  { tag:'M1', text:'Wrote E = Pt with both values in' }] },
+
+        { text: 'A 1500 kg car moving at 20 m/s collides with a stationary 1000 kg car. They move off together. Calculate their combined speed.', hint: 'Give your answer in m/s.', marks: 4,
+          accept: ['12','12m/s','12 m/s'], shown: '12 m/s', acc: 1, accNote: 'A1 — correct combined speed',
+          steps: [{ tag:'M1', text:'Found the momentum before the collision as 1500 × 20 = 30 000 kg m/s' },
+                  { tag:'M1', text:'Stated that total momentum is conserved' },
+                  { tag:'M1', text:'Used the combined mass of 2500 kg after the collision' }] }
+      ]
+    }
+  };
+
+  var current = null, state = [];
 
   function norm(s) {
-    return String(s || '')
-      .toLowerCase()
-      .replace(/\s+/g, '')
-      .replace(/−/g, '-')
-      .replace(/["'`]/g, '')
-      .replace(/^x=/, 'x=');
+    return String(s || '').toLowerCase().replace(/\s+/g, '')
+      .replace(/−/g, '-').replace(/["'`]/g, '')
+      .replace(/²/g, '^2').replace(/³/g, '^3');
   }
-
   function isRight(q, val) {
     var v = norm(val);
     if (!v) return false;
     return q.accept.some(function (a) { return norm(a) === v; });
   }
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
 
   var host = document.getElementById('questions');
+  var slot = document.getElementById('resultSlot');
 
-  QS.forEach(function (q, i) {
-    var card = document.createElement('section');
-    card.className = 'q';
+  function build(key) {
+    current = key;
+    var bank = BANKS[key];
+    state = bank.qs.map(function () { return { checked: false, right: false, method: 0 }; });
+    slot.innerHTML = '';
+    host.innerHTML = '';
 
-    var stepHtml = q.steps.map(function (s, j) {
-      return '<li><label><input type="checkbox" data-q="' + i + '" data-s="' + j + '">' +
-             '<span><span class="tag">' + s.tag + '</span> ' + s.text + '</span></label></li>';
-    }).join('');
-
-    card.innerHTML =
-      '<div class="q__head"><span class="q__n">Question ' + (i + 1) + '</span>' +
-      '<span class="q__marks">[' + q.marks + ' marks]</span></div>' +
-      '<p class="q__text">' + q.text + '</p>' +
-      '<p class="q__hint">' + q.hint + '</p>' +
-      '<div class="answer">' +
-        '<input type="text" id="in' + i + '" autocomplete="off" aria-label="Your answer to question ' + (i + 1) + '" placeholder="Your answer">' +
-        '<button class="btn btn--sm" type="button" id="go' + i + '">Check</button>' +
-      '</div>' +
-      '<div class="scheme" id="sch' + i + '" hidden>' +
-        '<p class="scheme__t">Mark scheme</p>' +
-        '<div id="ver' + i + '"></div>' +
-        '<p class="ask">Now tick every line below that you actually wrote down on paper.</p>' +
-        '<ul class="steps">' + stepHtml + '</ul>' +
-        '<p class="ask" style="margin-top:.9rem"><span class="tag" style="font-family:var(--sans)">' +
-          (q.acc === 2 ? 'A2' : 'A1') + '</span> ' + q.accNote + '</p>' +
-      '</div>';
-
-    host.appendChild(card);
-
-    function check() {
-      var val = document.getElementById('in' + i).value;
-      var right = isRight(q, val);
-      state[i].checked = true;
-      state[i].right = right;
-      var ver = document.getElementById('ver' + i);
-      ver.className = '';
-      ver.innerHTML = '<p class="verdict ' + (right ? 'verdict--good' : 'verdict--miss') + '">' +
-        (right ? 'Correct — ' : 'Not quite. The answer is ') + q.shown +
-        (right ? '. That earns the accuracy mark' + (q.acc > 1 ? 's' : '') + '.' : '.') + '</p>';
-      document.getElementById('sch' + i).hidden = false;
-      update();
-    }
-
-    document.getElementById('go' + i).addEventListener('click', check);
-    document.getElementById('in' + i).addEventListener('keydown', function (e) {
-      if (e.key === 'Enter') { e.preventDefault(); check(); }
+    document.querySelectorAll('.pick').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.subject === key));
     });
-  });
+
+    bank.qs.forEach(function (q, i) {
+      var card = document.createElement('section');
+      card.className = 'q';
+      var stepHtml = q.steps.map(function (s, j) {
+        return '<li><label><input type="checkbox" data-q="' + i + '" data-s="' + j + '">' +
+               '<span><span class="tag">' + s.tag + '</span> ' + s.text + '</span></label></li>';
+      }).join('');
+      card.innerHTML =
+        '<div class="q__head"><span class="q__n">' + esc(bank.name) + ' · Question ' + (i + 1) + '</span>' +
+        '<span class="q__marks">[' + q.marks + ' marks]</span></div>' +
+        '<p class="q__text">' + q.text + '</p>' +
+        '<p class="q__hint">' + q.hint + '</p>' +
+        '<div class="answer">' +
+          '<input type="text" id="in' + i + '" autocomplete="off" aria-label="Your answer to question ' + (i + 1) + '" placeholder="Your answer">' +
+          '<button class="btn btn--sm" type="button" id="go' + i + '">Check</button>' +
+        '</div>' +
+        '<div class="scheme" id="sch' + i + '" hidden>' +
+          '<p class="scheme__t">Mark scheme</p><div id="ver' + i + '"></div>' +
+          '<p class="ask">Now tick every line below that you actually wrote down on paper.</p>' +
+          '<ul class="steps">' + stepHtml + '</ul>' +
+          '<p class="ask" style="margin-top:.9rem"><span class="tag">' + (q.acc === 2 ? 'A2' : 'A1') + '</span> ' + q.accNote + '</p>' +
+        '</div>';
+      host.appendChild(card);
+
+      function check() {
+        var right = isRight(q, document.getElementById('in' + i).value);
+        state[i].checked = true;
+        state[i].right = right;
+        document.getElementById('ver' + i).innerHTML =
+          '<p class="verdict ' + (right ? 'verdict--good' : 'verdict--miss') + '">' +
+          (right ? 'Correct — ' : 'Not quite. The answer is ') + q.shown +
+          (right ? '. That earns the accuracy mark' + (q.acc > 1 ? 's' : '') + '.' : '.') + '</p>';
+        document.getElementById('sch' + i).hidden = false;
+        update();
+      }
+      document.getElementById('go' + i).addEventListener('click', check);
+      document.getElementById('in' + i).addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') { e.preventDefault(); check(); }
+      });
+    });
+
+    update();
+    document.getElementById('intro').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 
   host.addEventListener('change', function (e) {
     var t = e.target;
@@ -336,64 +407,74 @@ footer { border-top: 1px solid var(--line); background: var(--paper-2); margin-t
     }
   });
 
-  var slot = document.getElementById('resultSlot');
-
   function update() {
+    if (!current) return;
+    var n = BANKS[current].qs.length;
     var done = state.filter(function (s) { return s.checked; }).length;
-    document.getElementById('progText').textContent = done + ' of ' + QS.length + ' marked';
-    document.getElementById('progBar').style.width = (done / QS.length * 100) + '%';
-    if (done === QS.length) render();
+    document.getElementById('progText').textContent = BANKS[current].name + ' — ' + done + ' of ' + n + ' marked';
+    document.getElementById('progBar').style.width = (done / n * 100) + '%';
+    if (done === n) render();
   }
 
   function render() {
+    var bank = BANKS[current];
     var methodTotal = 0, methodGot = 0, accTotal = 0, accGot = 0;
-    QS.forEach(function (q, i) {
+    bank.qs.forEach(function (q, i) {
       methodTotal += q.steps.length;
       methodGot += state[i].method;
       accTotal += q.acc;
       accGot += state[i].right ? q.acc : 0;
     });
-    var total = methodTotal + accTotal;
-    var got = methodGot + accGot;
-    var methodLost = methodTotal - methodGot;
-    var accLost = accTotal - accGot;
+    var total = methodTotal + accTotal, got = methodGot + accGot;
+    var methodLost = methodTotal - methodGot, accLost = accTotal - accGot;
 
-    var head, body2;
+    var head, body;
     if (got === total) {
       head = 'Full marks, and every step written down.';
-      body2 = 'Nothing here to fix. If you want to be stretched rather than corrected, that is a different kind of lesson — worth saying so when you get in touch.';
+      body = 'Nothing to fix here. If you want to be stretched rather than corrected, say so when you get in touch — that is a different kind of lesson.';
     } else if (methodLost > accLost) {
-      head = 'Your maths is better than your mark.';
-      body2 = 'You lost ' + methodLost + ' mark' + (methodLost === 1 ? '' : 's') + ' to working you did not write down, against ' +
-              accLost + ' to answers that were actually wrong. Those ' + methodLost + ' were already yours — you did the thinking and an examiner never saw it. ' +
-              'This is the most common reason a grade 7 student gets a 6, and it is the fastest thing to fix.';
+      head = 'Your ' + (current === 'physics' ? 'physics' : 'maths') + ' is better than your mark.';
+      body = 'You lost ' + methodLost + ' mark' + (methodLost === 1 ? '' : 's') + ' to working you did not write down, against ' +
+             accLost + ' to answers that were actually wrong. Those ' + methodLost + ' were already yours — you did the thinking and an examiner never saw it. ' +
+             'This is the most common reason a grade 7 student gets a 6, and it is the fastest thing to fix.';
     } else if (accLost > methodLost) {
       head = 'Your working is sound — the answers are slipping.';
-      body2 = 'You lost ' + accLost + ' mark' + (accLost === 1 ? '' : 's') + ' on final answers against ' + methodLost +
-              ' on method. You are setting problems up correctly and losing them at the end, which usually means arithmetic under time pressure or not checking the question actually asked for what you gave it.';
+      body = 'You lost ' + accLost + ' mark' + (accLost === 1 ? '' : 's') + ' on final answers against ' + methodLost +
+             ' on method. You are setting problems up correctly and losing them at the end' +
+             (current === 'physics' ? ' — usually unit conversions, or rounding before the final line.' : ' — usually arithmetic under time pressure, or not answering what was actually asked.');
     } else {
       head = 'Marks are going evenly to both.';
-      body2 = 'You lost ' + methodLost + ' to method and ' + accLost + ' to accuracy. That split usually means the topic knowledge is patchy rather than the technique — worth finding which topics specifically.';
+      body = 'You lost ' + methodLost + ' to method and ' + accLost + ' to accuracy. An even split usually means the topic knowledge is patchy rather than the technique — worth finding which topics specifically.';
     }
 
     slot.innerHTML =
       '<div class="result">' +
-        '<p class="label">Your result</p>' +
+        '<p class="label">' + esc(bank.name) + ' — your result</p>' +
         '<h2 style="font-size:1.9rem;margin-top:.8rem">' + head + '</h2>' +
         '<div class="score">' +
           '<div><b>' + got + '/' + total + '</b><span>Total marks</span></div>' +
           '<div><b>' + methodGot + '/' + methodTotal + '</b><span>Method marks (working shown)</span></div>' +
           '<div><b>' + accGot + '/' + accTotal + '</b><span>Accuracy marks (final answers)</span></div>' +
         '</div>' +
-        '<p class="readout">' + body2 + '</p>' +
-        '<p class="readout">This was six questions. The free first lesson is forty-five minutes of the same thing across a whole paper, and you leave with it written down — which topics are secure, which are not, and what to do about it.</p>' +
+        '<p class="readout">' + body + '</p>' +
+        '<p class="readout">That was eight questions. The free first lesson is forty-five minutes of the same thing across a whole paper, and you leave with it written down — which topics are secure, which are not, and what to do about it.</p>' +
         '<div class="cta">' +
           '<a class="btn" href="index.html#contact">Book the free lesson</a>' +
-          '<a class="btn btn--ghost" href="index.html">See what I cover</a>' +
+          '<a class="btn btn--ghost" href="papers.html">Track your past papers</a>' +
         '</div>' +
       '</div>';
     slot.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+
+  document.querySelectorAll('.pick').forEach(function (b) {
+    b.addEventListener('click', function () {
+      build(b.dataset.subject);
+      history.replaceState(null, '', '#' + b.dataset.subject);
+    });
+  });
+
+  var h = (location.hash || '').replace('#', '');
+  build(BANKS[h] ? h : 'maths');
 })();
 </script>
 </body>
