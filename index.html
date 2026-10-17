@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="One-to-one online GCSE Maths, Further Maths and Physics tuition with Archit Sharma. Free 45-minute diagnostic first lesson. AQA, Edexcel and OCR.">
+<meta name="description" content="One-to-one online GCSE Maths, Further Maths and Physics tuition with Archit Sharma — grade 9 in all three. Free 45-minute diagnostic first lesson. AQA, Edexcel and OCR.">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="GCSE Tuition — Archit Sharma">
-<meta property="og:description" content="One-to-one online GCSE Maths, Further Maths and Physics tuition. Free 45-minute diagnostic first lesson.">
+<meta property="og:description" content="Grade 9 in Maths, Further Maths and Physics. One-to-one online tuition with a free 45-minute diagnostic first lesson.">
 <meta property="og:image" content="https://archittutoring.co.uk/archit.jpg">
 <meta property="og:type" content="website">
 <title>GCSE Tuition — Archit Sharma</title>
@@ -195,6 +195,39 @@ a { color: var(--navy-mid); }
   pointer-events: none;
 }
 .hero__grid { position: relative; }
+
+/* drifting paper cards behind the hero */
+.drift { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.drift i { position: absolute; opacity: 0; }
+.drift span {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #ffffff;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.75rem 1.05rem;
+  transform: rotate(var(--r));
+}
+@keyframes driftIn { from { opacity: 0; } to { opacity: 0.14; } }
+@keyframes bob {
+  0%, 100% { transform: rotate(var(--r)) translateY(0); }
+  50%      { transform: rotate(var(--r)) translateY(-11px); }
+}
+html.anim .drift i { animation: driftIn 1.6s ease-out both; }
+html.anim .drift i:nth-child(1) { animation-delay: .35s } html.anim .drift i:nth-child(2) { animation-delay: .55s }
+html.anim .drift i:nth-child(3) { animation-delay: .45s } html.anim .drift i:nth-child(4) { animation-delay: .75s }
+html.anim .drift i:nth-child(5) { animation-delay: .65s } html.anim .drift i:nth-child(6) { animation-delay: .85s }
+html.anim .drift span { animation: bob 9s ease-in-out infinite; }
+html.anim .drift i:nth-child(even) span { animation-duration: 11s; animation-delay: -3s; }
+html:not(.anim) .drift i { opacity: .14; }
+@media (max-width: 60rem) { .drift i:nth-child(n+4) { display: none; } }
+@media (max-width: 46rem) { .drift { display: none; } }
 .navy .lede { color: var(--on-navy-soft); }
 .navy .lede strong { color: #ffffff; }
 .navy .hero__foot { color: var(--on-navy-faint); }
@@ -288,8 +321,15 @@ a { color: var(--navy-mid); }
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
-.fact span { display: block; font-family: var(--sans); font-size: 0.8125rem; color: var(--ink-soft); margin-top: 0.5rem; }
-.fact em { display: block; font-family: var(--sans); font-style: normal; font-size: 0.75rem; color: var(--ink-faint); margin-top: 0.15rem; }
+.fact > span { display: block; font-family: var(--sans); font-size: 0.8125rem; color: var(--ink-soft); margin-top: 0.5rem; }
+.fact > em { display: block; font-family: var(--sans); font-style: normal; font-size: 0.75rem; color: var(--ink-faint); margin-top: 0.15rem; }
+.grades { display: flex; gap: 0.3rem; }
+.grades span { display: inline-block; }
+@keyframes pop { from { opacity: 0; transform: translateY(10px) scale(0.8); } to { opacity: 1; transform: none; } }
+html.anim .grades span { animation: pop 0.5s cubic-bezier(0.34, 1.3, 0.64, 1) both; }
+html.anim .grades span:nth-child(1) { animation-delay: 0.78s; }
+html.anim .grades span:nth-child(2) { animation-delay: 0.90s; }
+html.anim .grades span:nth-child(3) { animation-delay: 1.02s; }
 
 /* ---------- section heads ---------- */
 .sec-head { max-width: var(--read); }
@@ -509,15 +549,23 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
 <main id="top">
 
   <section class="navy hero">
+    <div class="drift" aria-hidden="true">
+      <i style="top:6%;left:3%"><span style="--r:-7deg">Edexcel 1MA1 · 1H</span></i>
+      <i style="top:62%;left:1%"><span style="--r:5deg">Circle theorems</span></i>
+      <i style="top:14%;right:4%"><span style="--r:8deg">AQA 8463 · Paper 2</span></i>
+      <i style="top:74%;right:7%"><span style="--r:-6deg">Momentum</span></i>
+      <i style="top:40%;right:30%"><span style="--r:4deg">AQA L2 Further Maths</span></i>
+      <i style="top:88%;left:34%"><span style="--r:-4deg">OCR J560 · Paper 4</span></i>
+    </div>
     <div class="wrap hero__grid">
       <div>
         <p class="label">GCSE Maths · Further Maths · Physics</p>
         <h1>Strong grades are built on method, <em>not luck.</em></h1>
         <p class="lede">
-          One-to-one online tutoring from a tutor sitting Oxbridge-entrance maths this year.
-          I'm Archit — Upper Sixth, predicted <strong>A*A*A*</strong>, applying to
-          <strong>Cambridge and LSE</strong> for Economics. The first lesson is a free diagnostic:
-          you'll leave knowing exactly where the marks are going before you pay anything.
+          I'm Archit. I got <strong>grade 9 in all three subjects I teach</strong> — Maths, Further
+          Maths and Physics — and I'm now in Upper Sixth, predicted A*A*A* and applying to Cambridge
+          and LSE for Economics. The first lesson is a free diagnostic: you'll leave knowing exactly
+          where the marks are going before you pay anything.
         </p>
         <div class="cta-row">
           <a class="btn" href="#contact">Take the free diagnostic</a>
@@ -540,10 +588,10 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
 
   <div class="facts">
     <div class="facts__in">
+      <div class="fact"><b class="grades"><span>9</span><span>9</span><span>9</span></b><span>My own GCSE grades</span><em>Maths · Further Maths · Physics</em></div>
+      <div class="fact"><b data-count="96" data-suffix="%">96%</b><span>Average paper mark</span><em>97% maths · 95% FM · 96% physics</em></div>
       <div class="fact"><b>Free</b><span>First lesson</span><em>45-minute diagnostic</em></div>
-      <div class="fact"><b>A*A*A*A</b><span>Predicted grades</span><em>Maths, Physics, Economics, FM</em></div>
-      <div class="fact"><b>3</b><span>Subjects taught</span><em>No padding the list</em></div>
-      <div class="fact"><b>24h</b><span>Reply to enquiries</span><em>Seven days a week</em></div>
+      <div class="fact"><b data-count="24" data-suffix="h">24h</b><span>Reply to enquiries</span><em>Seven days a week</em></div>
     </div>
   </div>
 
@@ -647,6 +695,7 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
           than passable across a wide one.
         </p>
         <ul class="facts-list">
+          <li>Grade 9 at GCSE in all three subjects I teach — 97% Maths, 95% Further Maths, 96% Physics</li>
           <li>King's College School, Wimbledon — Upper Sixth</li>
           <li>Predicted A*A*A* at A-level, plus an A in Further Maths</li>
           <li>Cambridge and LSE applicant — Economics, 2027 entry</li>
@@ -737,8 +786,8 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
         <details open>
           <summary>You're still at school yourself. Why you?</summary>
           <p>
-            Because I sat these papers recently enough to remember exactly where the marks go, and I'm
-            still being examined at a higher level every week. I'm not a qualified teacher and I don't
+            Because I sat these exact papers recently, got a grade 9 in all three, and still remember
+            where the marks actually go — and I'm being examined at a higher level every week. I'm not a qualified teacher and I don't
             pretend to be one. What I offer is current, specific subject knowledge and exam technique,
             one to one. The free first lesson exists so you can judge that before any money changes hands.
           </p>
@@ -746,9 +795,10 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
         <details>
           <summary>What are your actual grades?</summary>
           <p>
-            Predicted A* in Maths (Edexcel), A* in Physics (AQA), A* in Economics and an A in Further
-            Maths (OCR MEI). I'm applying to Cambridge and LSE for Economics for 2027 entry and I sit the
-            TMUA admissions test. Happy to show the paperwork on request.
+            At GCSE: grade 9 in Maths, grade 9 in Further Maths and grade 9 in Physics — 97%, 95% and
+            96% respectively. At A-level I'm predicted A* in Maths (Edexcel), A* in Physics (AQA),
+            A* in Economics and an A in Further Maths (OCR MEI). I'm applying to Cambridge and LSE for
+            Economics for 2027 entry and I sit the TMUA admissions test. Happy to show certificates on request.
           </p>
         </details>
         <details>
@@ -824,6 +874,29 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
 </footer>
 
 <script>
+(function () {
+  // count the numeric facts up as the strip reveals
+  var root = document.documentElement;
+  var els = document.querySelectorAll('[data-count]');
+  if (!root.classList.contains('anim')) return;
+  els.forEach(function (el, i) {
+    var target = parseInt(el.dataset.count, 10);
+    var suffix = el.dataset.suffix || '';
+    if (!(target > 0)) return;
+    el.textContent = '0' + suffix;
+    var dur = 1100, start = null, delay = 820 + i * 90;
+    setTimeout(function () {
+      requestAnimationFrame(function step(t) {
+        if (start === null) start = t;
+        var p = Math.min(1, (t - start) / dur);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      });
+    }, delay);
+  });
+})();
+
 (function () {
   var root = document.documentElement;
   if (!root.classList.contains('anim')) return;
