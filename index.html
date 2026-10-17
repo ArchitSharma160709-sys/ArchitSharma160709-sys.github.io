@@ -323,8 +323,19 @@ html:not(.anim) .drift i { opacity: .14; }
 }
 .fact > span { display: block; font-family: var(--sans); font-size: 0.8125rem; color: var(--ink-soft); margin-top: 0.5rem; }
 .fact > em { display: block; font-family: var(--sans); font-style: normal; font-size: 0.75rem; color: var(--ink-faint); margin-top: 0.15rem; }
-.grades { display: flex; gap: 0.3rem; }
+.fact b.grades { display: flex; gap: 1.1rem; }
 .grades span { display: inline-block; }
+.fact b.pcts { display: flex; gap: 1.25rem; align-items: flex-start; justify-content: space-between; width: 100%; white-space: normal; }
+.pcts span { display: flex; flex-direction: column; }
+.pcts u { text-decoration: none; font-size: clamp(1.15rem, 2.7vw, 1.55rem); line-height: 1; letter-spacing: -0.02em; }
+.pcts small {
+  font-family: var(--sans); font-weight: 600; font-size: 0.625rem;
+  letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-faint); margin-top: 0.35rem;
+}
+html.anim .pcts span { animation: pop 0.5s cubic-bezier(0.34, 1.3, 0.64, 1) both; }
+html.anim .pcts span:nth-child(1) { animation-delay: 0.86s; }
+html.anim .pcts span:nth-child(2) { animation-delay: 0.98s; }
+html.anim .pcts span:nth-child(3) { animation-delay: 1.10s; }
 @keyframes pop { from { opacity: 0; transform: translateY(10px) scale(0.8); } to { opacity: 1; transform: none; } }
 html.anim .grades span { animation: pop 0.5s cubic-bezier(0.34, 1.3, 0.64, 1) both; }
 html.anim .grades span:nth-child(1) { animation-delay: 0.78s; }
@@ -589,7 +600,7 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
   <div class="facts">
     <div class="facts__in">
       <div class="fact"><b class="grades"><span>9</span><span>9</span><span>9</span></b><span>My own GCSE grades</span><em>Maths · Further Maths · Physics</em></div>
-      <div class="fact"><b data-count="96" data-suffix="%">96%</b><span>Average paper mark</span><em>97% maths · 95% FM · 96% physics</em></div>
+      <div class="fact"><b class="pcts"><span><u>97%</u><small>Maths</small></span><span><u>95%</u><small>Further Maths</small></span><span><u>96%</u><small>Physics</small></span></b></div>
       <div class="fact"><b>Free</b><span>First lesson</span><em>45-minute diagnostic</em></div>
       <div class="fact"><b data-count="24" data-suffix="h">24h</b><span>Reply to enquiries</span><em>Seven days a week</em></div>
     </div>
