@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="One-to-one online GCSE Maths, Further Maths and Physics tuition with Archit Sharma — grade 9 in all three. Free 45-minute diagnostic first lesson. AQA, Edexcel and OCR.">
+<meta name="description" content="One-to-one online tuition in GCSE Maths, Further Maths, Physics and Chemistry, plus personal statement and ESAT guidance. Grade 9 tutors. Free 45-minute diagnostic first lesson.">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:title" content="GCSE Tuition — Archit Sharma">
-<meta property="og:description" content="Grade 9 in Maths, Further Maths and Physics. One-to-one online tuition with a free 45-minute diagnostic first lesson.">
+<meta property="og:title" content="GCSE Tuition, Personal Statements &amp; Entrance Tests">
+<meta property="og:description" content="Grade 9 tutors in Maths, Further Maths, Physics and Chemistry, plus personal statement and ESAT guidance. Free first lesson.">
 <meta property="og:image" content="https://archittutoring.co.uk/archit.jpg">
 <meta property="og:type" content="website">
-<title>GCSE Tuition — Archit Sharma</title>
+<title>GCSE Tuition, Personal Statements &amp; Entrance Tests</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@400;500;600&display=swap">
@@ -408,6 +408,37 @@ html.anim .grades span:nth-child(3) { animation-delay: 1.02s; }
 .facts-list { margin-top: 0.25rem; }
 .row { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
 
+/* ---------- tutors ---------- */
+.tutors { display: grid; gap: 1.25rem; margin-top: 2.75rem; }
+.tutor {
+  display: grid;
+  grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  padding: 1.85rem 1.75rem;
+}
+.tutor__shot { margin: 0; min-width: 0; }
+.tutor__shot img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--line); }
+.tutor__body { min-width: 0; display: flex; flex-direction: column; gap: 0.95rem; }
+.tutor h3 { font-size: 1.625rem; font-weight: 600; }
+.tutor__role {
+  font-family: var(--sans); font-size: 0.8125rem; font-weight: 600;
+  letter-spacing: 0.03em; color: var(--navy-mid); margin-top: -0.55rem;
+}
+.tutor__body > p { color: var(--ink-soft); }
+.tutor__teaches { padding-top: 0.95rem; border-top: 1px solid var(--line); font-size: 1rem; color: var(--ink); }
+.tutor__teaches strong {
+  display: block; font-family: var(--sans); font-size: 0.6875rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.35rem;
+}
+@media (max-width: 46rem) {
+  .tutor { grid-template-columns: 1fr; gap: 1.4rem; padding: 1.4rem 1.2rem; }
+  .tutor__shot { max-width: 11rem; }
+}
+
 /* ---------- steps ---------- */
 .steps { margin-top: 2.75rem; display: grid; gap: 0; border-top: 1px solid var(--line); }
 .step { display: grid; grid-template-columns: 3.5rem 1fr; gap: 1.5rem; padding-block: 1.85rem; border-bottom: 1px solid var(--line); align-items: start; }
@@ -482,6 +513,7 @@ html.anim .facts .fact:nth-child(4) { animation-delay: 0.96s; }
 /* ---------- scroll reveal ---------- */
 html.anim .sec-head,
 html.anim .card,
+html.anim .tutor,
 html.anim .step,
 html.anim .price,
 html.anim .ccard,
@@ -494,6 +526,7 @@ html.anim .sec-head:not(.in),
 html.anim .about__body:not(.in),
 html.anim .faq details:not(.in) { opacity: 0; transform: translateY(20px); }
 html.anim .card:not(.in),
+html.anim .tutor:not(.in),
 html.anim .price:not(.in),
 html.anim .ccard:not(.in),
 html.anim .tool:not(.in) { opacity: 0; transform: translateY(26px) scale(0.95); }
@@ -549,12 +582,12 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
 
 <header class="topbar">
   <div class="topbar__in">
-    <a class="wordmark" href="#top"><span class="mark" aria-hidden="true">A</span>GCSE Tuition<span class="wordmark__sub">— Archit Sharma</span></a>
+    <a class="wordmark" href="#top"><span class="mark" aria-hidden="true">S</span>GCSE Tuition<span class="wordmark__sub">&amp; admissions guidance</span></a>
     <nav class="topnav">
       <a href="#subjects">Subjects</a>
       <a href="diagnostic.html">Free check</a>
       <a href="papers.html">Papers</a>
-      <a href="#about">About</a>
+      <a href="#tutors">Tutors</a>
       <a href="#fees">Fees</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
@@ -576,13 +609,14 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
     </div>
     <div class="wrap hero__grid">
       <div>
-        <p class="label">GCSE Maths · Further Maths · Physics</p>
+        <p class="label">GCSE tutoring · Personal statements · Entrance tests</p>
         <h1>Strong grades are built on method, <em>not luck.</em></h1>
         <p class="lede">
           I'm Archit. I got <strong>grade 9 in all three subjects I teach</strong> — Maths, Further
           Maths and Physics — and I'm now in Upper Sixth, predicted A*A*A* and applying to Cambridge
-          and LSE for Economics. The first lesson is a free diagnostic: you'll leave knowing exactly
-          where the marks are going before you pay anything.
+          and LSE for Economics. I teach alongside my sister Raniya, who reads Chemical Engineering at
+          Cambridge. The first lesson is a free diagnostic: you'll leave knowing exactly where the marks
+          are going before you pay anything.
         </p>
         <div class="cta-row">
           <a class="btn" href="#contact">Take the free diagnostic</a>
@@ -615,12 +649,12 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
   <section class="band--line" id="subjects">
     <div class="wrap">
       <div class="sec-head">
-        <p class="label">What I teach</p>
-        <h2>Three subjects taught properly, not six taught vaguely.</h2>
+        <p class="label">What we teach</p>
+        <h2>Four subjects, plus the two things school barely helps with.</h2>
         <p>
-          I only tutor subjects I'm examined on at the top level right now. Everything is mapped to
-          your board's specification, and every piece of work comes back marked against the real
-          mark scheme.
+          Between us we cover four GCSE subjects, the personal statement and the ESAT. Everything is
+          mapped to your board's specification, and every piece of work comes back marked against the
+          real mark scheme.
         </p>
       </div>
       <div class="cards">
@@ -660,6 +694,43 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
             <li>Required practicals and 6-mark answers</li>
           </ul>
         </article>
+        <article class="card">
+          <h3>GCSE Chemistry</h3>
+          <p class="card__boards">AQA · Edexcel · OCR</p>
+          <p>Taught by Raniya. The calculation topics most students quietly avoid until it's too late.</p>
+          <ul>
+            <li>Moles, concentration and titrations</li>
+            <li>Rates of reaction and equilibrium</li>
+            <li>Electrolysis and redox</li>
+            <li>Organic chemistry and polymers</li>
+            <li>Required practicals and 6-mark answers</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Personal statement guidance</h3>
+          <p class="card__boards">UCAS · 2027 entry onwards</p>
+          <p>The difference between saying you're interested in a subject and showing that you are.</p>
+          <ul>
+            <li>Deciding what is actually worth 4,000 characters</li>
+            <li>Turning reading and projects into an argument</li>
+            <li>Line-by-line feedback across redrafts</li>
+            <li>Subject framing for sciences, maths, engineering and economics</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>ESAT guidance</h3>
+          <p class="card__boards">Engineering &amp; science admissions</p>
+          <p>Taught by Raniya, who sat it for her own Cambridge application.</p>
+          <ul>
+            <li>Section-by-section technique</li>
+            <li>Timing, and knowing which questions to skip</li>
+            <li>Mathematics 1 and 2, Physics, Chemistry</li>
+            <li>Past-paper walkthroughs under real timing</li>
+          </ul>
+        </article>
       </div>
 
       <div class="tool">
@@ -680,7 +751,7 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
           <p class="label">Free, no sign-up</p>
           <h3>Past papers, and somewhere to record how they went</h3>
           <p>
-            Every official past-paper source for all three subjects in one place, plus a tracker that
+            Every official past-paper source in one place, plus a tracker that
             logs your marks and tells you whether you're genuinely improving or just doing more papers.
           </p>
         </div>
@@ -689,39 +760,66 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
     </div>
   </section>
 
-  <section class="band--tint" id="about">
+  <section class="band--tint" id="tutors">
     <div class="wrap">
       <div class="sec-head">
-        <p class="label">About</p>
-        <h2>The person actually doing the teaching.</h2>
+        <p class="label">Our tutors</p>
+        <h2>Who you'd actually be working with.</h2>
+        <p>
+          Two of us, and between us a grade 9 in every subject on this page. Both recent enough
+          through the exams to remember how they actually behave under timing.
+        </p>
       </div>
-      <div class="about__body">
-        <p>
-          I'm <strong>Archit Sharma</strong> — Upper Sixth at King's College School, Wimbledon, taking
-          Maths, Further Maths, Physics and Economics at A-level.
-        </p>
-        <p>
-          I'm applying to Cambridge and LSE to read Economics, so my own week is spent on
-          admissions-level maths and the TMUA. That matters more than it sounds: the habits that get you
-          through an admissions paper — showing method, managing time, spotting when a question is
-          testing something other than what it appears to — are the same habits that move a GCSE grade 6
-          to a grade 8.
-        </p>
-        <p>
-          I tutor three subjects and no more, because I'd rather be genuinely strong in a narrow range
-          than passable across a wide one.
-        </p>
-        <ul class="facts-list">
-          <li>Grade 9 at GCSE in all three subjects I teach — 97% Maths, 95% Further Maths, 96% Physics</li>
-          <li>King's College School, Wimbledon — Upper Sixth</li>
-          <li>Predicted A*A*A* at A-level, plus an A in Further Maths</li>
-          <li>Cambridge and LSE applicant — Economics, 2027 entry</li>
-          <li>King's Essay: Bayesian Nash equilibrium in oligopoly pricing</li>
-          <li>Co-producer of a student economics and finance podcast</li>
-        </ul>
-        <div class="row">
-          <a class="btn btn--sm btn--ghost" href="https://www.linkedin.com/in/archit-sharma-b5a672380" target="_blank" rel="noopener">LinkedIn profile</a>
-        </div>
+
+      <div class="tutors">
+        <article class="tutor">
+          <figure class="tutor__shot">
+            <img src="archit.jpg" alt="Archit Sharma" width="800" height="1000" loading="lazy">
+          </figure>
+          <div class="tutor__body">
+            <h3>Archit Sharma</h3>
+            <p class="tutor__role">Upper Sixth, King's College School Wimbledon · Cambridge and LSE applicant</p>
+            <p>
+              I'm applying to Cambridge and LSE to read Economics, so my own week is spent on
+              admissions-level maths and the TMUA. The habits that get you through an admissions paper
+              — showing method, managing time, spotting when a question is testing something other
+              than what it appears to — are the same habits that move a GCSE grade 6 to a grade 8.
+            </p>
+            <ul class="facts-list">
+              <li>Grade 9 in Maths, Further Maths and Physics — 97%, 95% and 96%</li>
+              <li>Predicted A*A*A* at A-level, plus an A in Further Maths</li>
+              <li>King's Essay: Bayesian Nash equilibrium in oligopoly pricing</li>
+              <li>Co-producer of a student economics and finance podcast</li>
+            </ul>
+            <p class="tutor__teaches"><strong>Teaches</strong>GCSE Maths · Further Maths · Physics · Personal statements</p>
+            <div class="row">
+              <a class="btn btn--sm btn--ghost" href="https://www.linkedin.com/in/archit-sharma-b5a672380" target="_blank" rel="noopener">LinkedIn profile</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="tutor">
+          <figure class="tutor__shot">
+            <img src="raniya.jpg" alt="Raniya Sharma" width="800" height="1000" loading="lazy">
+          </figure>
+          <div class="tutor__body">
+            <h3>Raniya Sharma</h3>
+            <p class="tutor__role">University of Cambridge · Chemical Engineering and Biotechnology</p>
+            <p>
+              Raniya reads Chemical Engineering and Biotechnology at Cambridge, which means the
+              maths and chemistry on a GCSE paper are tools she uses weekly rather than things she
+              revised once. She sat the ESAT for her own application, so the admissions-test and
+              personal-statement coaching comes from having recently done it, not from a guide.
+            </p>
+            <ul class="facts-list">
+              <li>Ten grade 9s at GCSE</li>
+              <li>Three A*s and an A at A-level</li>
+              <li>Sat the ESAT for her Cambridge application</li>
+              <li>Reading Chemical Engineering and Biotechnology at Cambridge</li>
+            </ul>
+            <p class="tutor__teaches"><strong>Teaches</strong>GCSE Chemistry · Maths · Further Maths · Personal statements · ESAT</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -803,19 +901,31 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
         <details open>
           <summary>You're still at school yourself. Why you?</summary>
           <p>
-            Because I sat these exact papers recently, got a grade 9 in all three, and still remember
-            where the marks actually go — and I'm being examined at a higher level every week. I'm not a qualified teacher and I don't
+            Because we sat these exact papers recently, got grade 9s in them, and still remember where
+            the marks actually go — and we're both being examined at a higher level than we teach. I'm not a qualified teacher and I don't
             pretend to be one. What I offer is current, specific subject knowledge and exam technique,
             one to one. The free first lesson exists so you can judge that before any money changes hands.
           </p>
         </details>
         <details>
+          <summary>Who would actually be teaching my child?</summary>
+          <p>
+            One of two people, depending on the subject. Archit takes Maths, Further Maths and Physics;
+            Raniya takes Chemistry, Maths, Further Maths and the ESAT. Either of us can help with a
+            personal statement. You'll know who before you book, and the same person teaches every
+            lesson — nobody gets passed around.
+          </p>
+        </details>
+        <details>
           <summary>What are your actual grades?</summary>
           <p>
-            At GCSE: grade 9 in Maths, grade 9 in Further Maths and grade 9 in Physics — 97%, 95% and
-            96% respectively. At A-level I'm predicted A* in Maths (Edexcel), A* in Physics (AQA),
-            A* in Economics and an A in Further Maths (OCR MEI). I'm applying to Cambridge and LSE for
-            Economics for 2027 entry and I sit the TMUA admissions test. Happy to show certificates on request.
+            <strong>Archit:</strong> grade 9 in Maths, Further Maths and Physics at GCSE — 97%, 95% and
+            96%. Predicted A* in Maths (Edexcel), A* in Physics (AQA), A* in Economics and an A in Further
+            Maths (OCR MEI), applying to Cambridge and LSE for Economics.
+          </p>
+          <p style="margin-top:.7rem">
+            <strong>Raniya:</strong> ten grade 9s at GCSE, three A*s and an A at A-level, now reading
+            Chemical Engineering and Biotechnology at Cambridge. Happy to show certificates on request.
           </p>
         </details>
         <details>
@@ -844,8 +954,9 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
         <details>
           <summary>Do you tutor A-level?</summary>
           <p>
-            Not as a rule, but get in touch about AS Maths or Further Maths and I'll tell you honestly
-            whether I can help.
+            Not as a rule. Get in touch about AS Maths or Further Maths and we'll tell you honestly
+            whether we can help. The personal statement and ESAT coaching is sixth-form work, though —
+            that's for applicants, not GCSE students.
           </p>
         </details>
       </div>
@@ -885,7 +996,7 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
 
 <footer>
   <div class="foot__in">
-    <span>GCSE Tuition — Archit Sharma</span>
+    <span>GCSE tutoring, personal statement and entrance test guidance</span>
     <span><a href="diagnostic.html">Free mark check</a> · <a href="papers.html">Past papers</a> · GCSE Maths · Further Maths · Physics</span>
   </div>
 </footer>
@@ -917,7 +1028,7 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
 (function () {
   var root = document.documentElement;
   if (!root.classList.contains('anim')) return;
-  var sel = '.sec-head, .card, .step, .price, .ccard, .about__body, .tool, .faq details';
+  var sel = '.sec-head, .card, .tutor, .step, .price, .ccard, .tool, .faq details';
   var items = Array.prototype.slice.call(document.querySelectorAll(sel));
   function showAll() { items.forEach(function (el) { el.classList.add('in'); }); }
   try {
