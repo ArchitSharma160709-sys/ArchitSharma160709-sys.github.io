@@ -325,6 +325,11 @@ html:not(.anim) .drift i { opacity: .14; }
 .fact > em { display: block; font-family: var(--sans); font-style: normal; font-size: 0.75rem; color: var(--ink-faint); margin-top: 0.15rem; }
 .fact b.grades { display: flex; gap: 0.45rem; }
 .grades span { display: inline-block; }
+.fact > em.pcap {
+  display: block; font-family: var(--sans); font-style: normal; font-weight: 600;
+  font-size: 0.625rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--navy-mid); margin: 0 0 0.6rem;
+}
 .fact b.pcts { display: grid; gap: 0.5rem; white-space: normal; }
 .pcts span { display: flex; align-items: baseline; gap: 0.5rem; min-width: 0; }
 .pcts u { text-decoration: none; font-size: 1.25rem; line-height: 1.15; letter-spacing: -0.02em; flex: none; width: 2.9rem; }
@@ -601,7 +606,7 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
   <div class="facts">
     <div class="facts__in">
       <div class="fact"><b class="grades"><span>9</span><span>9</span><span>9</span></b><span>My own GCSE grades</span><em>Maths · Further Maths · Physics</em></div>
-      <div class="fact"><b class="pcts"><span><u>97%</u><small>Maths</small></span><span><u>95%</u><small>Further Maths</small></span><span><u>96%</u><small>Physics</small></span></b></div>
+      <div class="fact"><em class="pcap">GCSE results</em><b class="pcts"><span><u>97%</u><small>Maths</small></span><span><u>95%</u><small>Further Maths</small></span><span><u>96%</u><small>Physics</small></span></b></div>
       <div class="fact"><b>Free</b><span>First lesson</span><em>45-minute diagnostic</em></div>
       <div class="fact"><b data-count="24" data-suffix="h">24h</b><span>Reply to enquiries</span><em>Seven days a week</em></div>
     </div>
