@@ -478,7 +478,17 @@ html.anim .grades span:nth-child(3) { animation-delay: 1.02s; }
 }
 .book h3 { font-size: 1.5rem; font-weight: 600; color: #ffffff; }
 .book p { color: var(--on-navy-soft); font-size: 1.0625rem; margin-top: 0.5rem; max-width: 34rem; }
-.book__row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.book__row { display: flex; flex-direction: column; align-items: flex-start; gap: 0.9rem; }
+.book__alt {
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  color: var(--on-navy-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--on-navy-line);
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+.book__alt:hover { color: #ffffff; text-decoration-color: #ffffff; }
 @media (max-width: 46rem) { .book { grid-template-columns: 1fr; padding: 1.5rem 1.3rem; } }
 .contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1.25rem; margin-top: 1.25rem; }
 .ccard { border: 1px solid var(--on-navy-line); background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 1.85rem; display: flex; flex-direction: column; gap: 0.85rem; min-width: 0; }
@@ -991,8 +1001,8 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
           <p>Live availability, instant confirmation. The diagnostic is free and carries no obligation — take it before you decide anything.</p>
         </div>
         <div class="book__row">
-          <a class="btn" href="https://cal.com/archittutoring/diagnostic" target="_blank" rel="noopener">Free diagnostic · 45 min</a>
-          <a class="btn btn--ghost" href="https://cal.com/archittutoring/tuition-lesson" target="_blank" rel="noopener">Tuition lesson · 60 min</a>
+          <a class="btn" href="https://cal.com/archittutoring/diagnostic" target="_blank" rel="noopener">Book the free diagnostic · 45 min</a>
+          <a class="book__alt" href="https://cal.com/archittutoring/tuition-lesson" target="_blank" rel="noopener">Or book a paid 60-minute lesson</a>
         </div>
       </div>
       <div class="contact">
