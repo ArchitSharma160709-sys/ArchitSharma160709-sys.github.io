@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="One-to-one online tuition in GCSE Maths, Further Maths, Physics and Chemistry, plus personal statement and ESAT guidance. Grade 9 tutors. Free 45-minute diagnostic first lesson.">
+<meta name="description" content="One-to-one online GCSE tuition in Maths, Further Maths, Physics and Chemistry, plus personal statement and ESAT guidance. Free 45-minute diagnostic first lesson.">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="GCSE Tuition, Personal Statements &amp; Entrance Tests">
-<meta property="og:description" content="Grade 9 tutors in Maths, Further Maths, Physics and Chemistry, plus personal statement and ESAT guidance. Free first lesson.">
+<meta property="og:description" content="One-to-one online GCSE tuition in Maths, Further Maths, Physics and Chemistry, plus personal statement and ESAT guidance. Free 45-minute diagnostic first lesson.">
 <meta property="og:image" content="https://archittutoring.co.uk/archit.jpg">
 <meta property="og:type" content="website">
 <title>GCSE Tuition, Personal Statements &amp; Entrance Tests</title>
@@ -465,7 +465,22 @@ html.anim .grades span:nth-child(3) { animation-delay: 1.02s; }
 .faq details p { color: var(--ink-soft); font-size: 1.0625rem; padding-bottom: 1.5rem; max-width: var(--read); }
 
 /* ---------- contact (navy closing band) ---------- */
-.contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1.25rem; margin-top: 2.75rem; }
+.book {
+  margin-top: 2.75rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 2rem 1.85rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.4rem 2.25rem;
+  align-items: center;
+}
+.book h3 { font-size: 1.5rem; font-weight: 600; color: #ffffff; }
+.book p { color: var(--on-navy-soft); font-size: 1.0625rem; margin-top: 0.5rem; max-width: 34rem; }
+.book__row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+@media (max-width: 46rem) { .book { grid-template-columns: 1fr; padding: 1.5rem 1.3rem; } }
+.contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1.25rem; margin-top: 1.25rem; }
 .ccard { border: 1px solid var(--on-navy-line); background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 1.85rem; display: flex; flex-direction: column; gap: 0.85rem; min-width: 0; }
 .ccard h3 { font-size: 1.375rem; font-weight: 600; color: #ffffff; }
 .ccard p { color: var(--on-navy-soft); font-size: 1.0625rem; }
@@ -591,7 +606,7 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
       <a href="#fees">Fees</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
-      <a class="btn btn--sm" href="#contact">Book free lesson</a>
+      <a class="btn btn--sm" href="https://cal.com/archit-sharma-kon8jf/diagnostic" target="_blank" rel="noopener">Book free lesson</a>
     </nav>
   </div>
 </header>
@@ -619,7 +634,7 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
           are going before you pay anything.
         </p>
         <div class="cta-row">
-          <a class="btn" href="#contact">Take the free diagnostic</a>
+          <a class="btn" href="https://cal.com/archit-sharma-kon8jf/diagnostic" target="_blank" rel="noopener">Book the free diagnostic</a>
           <a class="btn btn--ghost" href="diagnostic.html">Try the 6-question check</a>
         </div>
         <p class="hero__foot">AQA · Edexcel · OCR — Higher tier specialists</p>
@@ -835,8 +850,8 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
         <div class="step">
           <p class="num">01</p>
           <div class="step__body">
-            <h3>Enquiry</h3>
-            <p>Send me the subject, the exam board, the current grade and the target. I reply within 24 hours with two or three slots.</p>
+            <h3>Pick a slot</h3>
+            <p>Choose a time from my live calendar — no back-and-forth, no waiting on a reply. You'll be asked for the subject, the exam board, the current grade and the target, so the first lesson starts with the right questions in front of you.</p>
           </div>
         </div>
         <div class="step">
@@ -968,13 +983,23 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
       <div class="sec-head">
         <p class="label">Get in touch</p>
         <h2>Book the free diagnostic.</h2>
-        <p>Two ways through, both answered by me rather than an office. Neither commits you to anything.</p>
+        <p>Pick a time straight from the calendar, or ask a question first. Neither commits you to anything.</p>
+      </div>
+      <div class="book">
+        <div>
+          <h3>Book a lesson</h3>
+          <p>Live availability, instant confirmation. The diagnostic is free and carries no obligation — take it before you decide anything.</p>
+        </div>
+        <div class="book__row">
+          <a class="btn" href="https://cal.com/archit-sharma-kon8jf/diagnostic" target="_blank" rel="noopener">Free diagnostic · 45 min</a>
+          <a class="btn btn--ghost" href="https://cal.com/archit-sharma-kon8jf/tuition-lesson" target="_blank" rel="noopener">Tuition lesson · 60 min</a>
+        </div>
       </div>
       <div class="contact">
         <div class="ccard">
           <h3>Email</h3>
           <p class="addr" id="email">ArchitSharma160709@icloud.com</p>
-          <p>Tell me the subject, the board, the grade now and the grade you want. I'll come back within 24 hours with a few slots and a first read on where the marks are most likely going.</p>
+          <p>Best for the longer questions — a full picture of where your child is, what's gone wrong so far, whether what I do is the right fit. I reply within 24 hours, seven days a week.</p>
           <div class="row">
             <a class="btn btn--sm" href="mailto:ArchitSharma160709@icloud.com?subject=GCSE%20tutoring%20enquiry">Open email</a>
             <button class="btn btn--sm btn--ghost" id="copy" type="button">Copy address</button>
@@ -984,7 +1009,7 @@ html.anim .step:nth-child(4) { transition-delay: 0.24s; }
         <div class="ccard">
           <h3>WhatsApp</h3>
           <p class="addr" id="phone">07598 498079</p>
-          <p>For the one question you want answered before writing a proper message — do I cover your board, is there a Tuesday evening free, is your child too far behind to catch up. Usually answered the same day.</p>
+          <p>For the one question you want answered before booking anything — do I cover your board, can you teach two subjects at once, is your child too far behind to catch up. Usually answered the same day.</p>
           <div class="row">
             <a class="btn btn--sm" href="https://wa.me/447598498079?text=Hi%20Archit%2C%20I%27d%20like%20to%20ask%20about%20GCSE%20tutoring.">Message on WhatsApp</a>
           </div>
